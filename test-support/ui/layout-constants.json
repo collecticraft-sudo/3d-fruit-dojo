@@ -1,0 +1,781 @@
+{
+ "MENU_MODES": [
+  {
+   "id": "classic",
+   "x": 480,
+   "y": 520,
+   "r": 175,
+   "fruit": "watermelon",
+   "scale": 1.9,
+   "nameKey": "menu.classic",
+   "descKey": "menu.classic.desc"
+  },
+  {
+   "id": "arcade",
+   "x": 960,
+   "y": 520,
+   "r": 170,
+   "fruit": "orange",
+   "scale": 2.5,
+   "nameKey": "menu.arcade",
+   "descKey": "menu.arcade.desc"
+  },
+  {
+   "id": "zen",
+   "x": 1440,
+   "y": 520,
+   "r": 172,
+   "fruit": "pear",
+   "scale": 2.6,
+   "nameKey": "menu.zen",
+   "descKey": "menu.zen.desc"
+  }
+ ],
+ "MENU_BUTTONS": [
+  {
+   "id": "menu.settings",
+   "x": 560,
+   "y": 975,
+   "w": 400,
+   "h": 100,
+   "labelKey": "menu.settings"
+  },
+  {
+   "id": "menu.recalibrate",
+   "x": 960,
+   "y": 975,
+   "w": 400,
+   "h": 100,
+   "labelKey": "menu.recalibrate"
+  },
+  {
+   "id": "menu.connection",
+   "x": 1360,
+   "y": 975,
+   "w": 400,
+   "h": 100,
+   "labelKey": "menu.connection"
+  }
+ ],
+ "PAUSE_BUTTONS": [
+  {
+   "id": "pause.resume",
+   "x": 960,
+   "y": 380,
+   "w": 620,
+   "h": 120,
+   "labelKey": "pause.resume"
+  },
+  {
+   "id": "pause.recalibrate",
+   "x": 960,
+   "y": 540,
+   "w": 620,
+   "h": 120,
+   "labelKey": "pause.recalibrate"
+  },
+  {
+   "id": "pause.settings",
+   "x": 960,
+   "y": 700,
+   "w": 620,
+   "h": 120,
+   "labelKey": "pause.settings"
+  },
+  {
+   "id": "pause.quit",
+   "x": 960,
+   "y": 860,
+   "w": 620,
+   "h": 120,
+   "labelKey": "pause.quit"
+  }
+ ],
+ "SETTINGS_COL": {
+  "left": {
+   "x0": 140,
+   "x1": 930
+  },
+  "right": {
+   "x0": 990,
+   "x1": 1780
+  }
+ },
+ "SETTINGS_ROWS": [
+  {
+   "key": "sensitivity",
+   "type": "stepper",
+   "col": "left",
+   "y": 250,
+   "labelKey": "settings.sens",
+   "hintKey": "settings.sens.hint"
+  },
+  {
+   "key": "cutThreshold",
+   "type": "stepper",
+   "col": "left",
+   "y": 400,
+   "labelKey": "settings.cut",
+   "hintKey": "settings.cut.hint"
+  },
+  {
+   "key": "volume",
+   "type": "stepper",
+   "col": "left",
+   "y": 550,
+   "labelKey": "settings.volume",
+   "hintKey": null
+  },
+  {
+   "key": "reduceFlash",
+   "type": "toggle",
+   "col": "left",
+   "y": 700,
+   "labelKey": "settings.flash",
+   "hintKey": "settings.flash.hint"
+  },
+  {
+   "key": "reduceMotion",
+   "type": "toggle",
+   "col": "right",
+   "y": 250,
+   "labelKey": "settings.motion",
+   "hintKey": "settings.motion.hint"
+  },
+  {
+   "key": "hand",
+   "type": "segment",
+   "col": "right",
+   "y": 400,
+   "labelKey": "settings.hand",
+   "hintKey": "settings.hand.hint"
+  },
+  {
+   "key": "autoCenter",
+   "type": "toggle",
+   "col": "right",
+   "y": 550,
+   "labelKey": "settings.autocenter",
+   "hintKey": "settings.autocenter.hint"
+  },
+  {
+   "key": "dwellSelect",
+   "type": "toggle",
+   "col": "right",
+   "y": 700,
+   "labelKey": "settings.dwell",
+   "hintKey": "settings.dwell.hint"
+  },
+  {
+   "key": "swordSelect",
+   "type": "toggle",
+   "col": "left",
+   "y": 806,
+   "inline": true,
+   "cy": 870,
+   "labelKey": "settings.sword",
+   "hintKey": "settings.sword.hint"
+  }
+ ],
+ "TUNING_ROWS": [
+  {
+   "key": "sensitivity",
+   "type": "stepper",
+   "col": "left",
+   "y": 245,
+   "labelKey": "settings.sens"
+  },
+  {
+   "key": "cutThreshold",
+   "type": "stepper",
+   "col": "right",
+   "y": 245,
+   "labelKey": "settings.cut"
+  }
+ ],
+ "TUNING_PRESET_Y": 440,
+ "TUNING_PRESETS": [
+  {
+   "id": "tune.preset.easy",
+   "value": 225,
+   "x": 1115,
+   "labelKey": "settings.cut.easy"
+  },
+  {
+   "id": "tune.preset.normal",
+   "value": 300,
+   "x": 1385,
+   "labelKey": "settings.cut.normal"
+  },
+  {
+   "id": "tune.preset.hard",
+   "value": 450,
+   "x": 1655,
+   "labelKey": "settings.cut.hard"
+  }
+ ],
+ "TUNING_METER": {
+  "x0": 990,
+  "x1": 1780,
+  "y": 552,
+  "h": 40,
+  "max": 900
+ },
+ "TUNING_CORNERS": [
+  {
+   "x": 90,
+   "y": 90
+  },
+  {
+   "x": 1830,
+   "y": 90
+  },
+  {
+   "x": 90,
+   "y": 990
+  },
+  {
+   "x": 1830,
+   "y": 990
+  }
+ ],
+ "TUNING_CORNER": {
+  "drawR": 46,
+  "reachR": 70
+ },
+ "TUNING_FRUIT": [
+  {
+   "id": "tune.fruit0",
+   "x": 560,
+   "y": 815,
+   "r": 92,
+   "fruit": "apple",
+   "scale": 1.2
+  },
+  {
+   "id": "tune.fruit1",
+   "x": 960,
+   "y": 815,
+   "r": 92,
+   "fruit": "kiwi",
+   "scale": 1.4
+  },
+  {
+   "id": "tune.fruit2",
+   "x": 1360,
+   "y": 815,
+   "r": 92,
+   "fruit": "lemon",
+   "scale": 1.4
+  }
+ ],
+ "TUNING_DEFAULTS": {
+  "sensitivity": 1,
+  "cutThreshold": 300
+ },
+ "RESULTS_PANEL": {
+  "x": 960,
+  "y": 520,
+  "w": 1240,
+  "h": 880
+ },
+ "DISCONNECT_PANEL": {
+  "x": 960,
+  "y": 540,
+  "w": 900,
+  "h": 640
+ },
+ "CONFIRM_PANEL": {
+  "x": 960,
+  "y": 540,
+  "w": 900,
+  "h": 420
+ },
+ "CONNECT_NATIVE": {
+  "main": {
+   "x": 1440,
+   "y": 365,
+   "w": 720,
+   "h": 120
+  },
+  "pillTop": 440,
+  "pillWidth": 780,
+  "barY": 606,
+  "secondaryY": 700,
+  "secondaryYWithFallback": 625,
+  "fallbackY": 715,
+  "secondaryW": 800,
+  "secondaryH": 72,
+  "cancel": {
+   "x": 1440,
+   "y": 700,
+   "w": 400,
+   "h": 72
+  }
+ },
+ "rowGeometry": {
+  "stepper:sensitivity:250": {
+   "labelX": 140,
+   "labelY": 250,
+   "cy": 314,
+   "minus": {
+    "x": 182,
+    "y": 314,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 314,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 250,
+    "y": 314,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 470,
+    "y": 314,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 265,
+    "y": 314,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 515,
+    "y": 314,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "stepper:cutThreshold:400": {
+   "labelX": 140,
+   "labelY": 400,
+   "cy": 464,
+   "minus": {
+    "x": 182,
+    "y": 464,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 464,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 250,
+    "y": 464,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 470,
+    "y": 464,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 265,
+    "y": 464,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 515,
+    "y": 464,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "stepper:volume:550": {
+   "labelX": 140,
+   "labelY": 550,
+   "cy": 614,
+   "minus": {
+    "x": 182,
+    "y": 614,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 614,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 250,
+    "y": 614,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 470,
+    "y": 614,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 265,
+    "y": 614,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 515,
+    "y": 614,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "toggle:reduceFlash:700": {
+   "labelX": 140,
+   "labelY": 700,
+   "cy": 764,
+   "minus": {
+    "x": 182,
+    "y": 764,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 764,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 250,
+    "y": 764,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 470,
+    "y": 764,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 265,
+    "y": 764,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 515,
+    "y": 764,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "toggle:reduceMotion:250": {
+   "labelX": 990,
+   "labelY": 250,
+   "cy": 314,
+   "minus": {
+    "x": 1032,
+    "y": 314,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 1738,
+    "y": 314,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 1385,
+   "cellA": {
+    "x": 1100,
+    "y": 314,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 1320,
+    "y": 314,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 1115,
+    "y": 314,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 1365,
+    "y": 314,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "segment:hand:400": {
+   "labelX": 990,
+   "labelY": 400,
+   "cy": 464,
+   "minus": {
+    "x": 1032,
+    "y": 464,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 1738,
+    "y": 464,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 1385,
+   "cellA": {
+    "x": 1100,
+    "y": 464,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 1320,
+    "y": 464,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 1115,
+    "y": 464,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 1365,
+    "y": 464,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "toggle:autoCenter:550": {
+   "labelX": 990,
+   "labelY": 550,
+   "cy": 614,
+   "minus": {
+    "x": 1032,
+    "y": 614,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 1738,
+    "y": 614,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 1385,
+   "cellA": {
+    "x": 1100,
+    "y": 614,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 1320,
+    "y": 614,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 1115,
+    "y": 614,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 1365,
+    "y": 614,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "toggle:dwellSelect:700": {
+   "labelX": 990,
+   "labelY": 700,
+   "cy": 764,
+   "minus": {
+    "x": 1032,
+    "y": 764,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 1738,
+    "y": 764,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 1385,
+   "cellA": {
+    "x": 1100,
+    "y": 764,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 1320,
+    "y": 764,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 1115,
+    "y": 764,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 1365,
+    "y": 764,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "toggle:swordSelect:806": {
+   "labelX": 140,
+   "labelY": 882,
+   "cy": 870,
+   "minus": {
+    "x": 182,
+    "y": 870,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 870,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 725,
+    "y": 870,
+    "w": 130,
+    "h": 84
+   },
+   "cellB": {
+    "x": 865,
+    "y": 870,
+    "w": 130,
+    "h": 84
+   },
+   "segA": {
+    "x": 725,
+    "y": 870,
+    "w": 130,
+    "h": 84
+   },
+   "segB": {
+    "x": 865,
+    "y": 870,
+    "w": 130,
+    "h": 84
+   },
+   "labelSize": 30
+  },
+  "stepper:sensitivity:245": {
+   "labelX": 140,
+   "labelY": 245,
+   "cy": 309,
+   "minus": {
+    "x": 182,
+    "y": 309,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 888,
+    "y": 309,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 535,
+   "cellA": {
+    "x": 250,
+    "y": 309,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 470,
+    "y": 309,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 265,
+    "y": 309,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 515,
+    "y": 309,
+    "w": 240,
+    "h": 84
+   }
+  },
+  "stepper:cutThreshold:245": {
+   "labelX": 990,
+   "labelY": 245,
+   "cy": 309,
+   "minus": {
+    "x": 1032,
+    "y": 309,
+    "w": 84,
+    "h": 84
+   },
+   "plus": {
+    "x": 1738,
+    "y": 309,
+    "w": 84,
+    "h": 84
+   },
+   "valueX": 1385,
+   "cellA": {
+    "x": 1100,
+    "y": 309,
+    "w": 210,
+    "h": 84
+   },
+   "cellB": {
+    "x": 1320,
+    "y": 309,
+    "w": 210,
+    "h": 84
+   },
+   "segA": {
+    "x": 1115,
+    "y": 309,
+    "w": 240,
+    "h": 84
+   },
+   "segB": {
+    "x": 1365,
+    "y": 309,
+    "w": 240,
+    "h": 84
+   }
+  }
+ }
+}

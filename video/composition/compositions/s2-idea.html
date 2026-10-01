@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s2-idea { position: absolute; inset: 0; overflow: hidden; background: #efe3c4; font-family: Montserrat, Inter, sans-serif; color: #1d1a1c; }
+        #s2-idea .abs { position: absolute; left: 0; top: 0; }
+        #s2-idea circle { transform-box: fill-box; transform-origin: 50% 50%; }
+        #s2-idea .grid { position: absolute; inset: 0;
+          background-image: linear-gradient(rgba(29,26,28,0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(29,26,28,0.07) 2px, transparent 2px);
+          background-size: 60px 60px; }
+        #s2-idea .vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(239,227,196,0) 55%, rgba(120,92,50,0.28) 100%); }
+        #s2-idea .stamp { left: 96px; top: 70px; padding: 8px 26px 6px; border: 7px solid #d4401c; border-radius: 14px; color: #d4401c; transform-origin: 50% 50%;
+          font-weight: 900; font-size: 44px; letter-spacing: 0.14em; line-height: 1.1; text-align: center; background: rgba(239,227,196,0.7); }
+        #s2-idea .stamp small { display: block; font-size: 20px; letter-spacing: 0.08em; font-weight: 700; margin-top: 2px; }
+        #s2-idea .lbl { position: absolute; left: 0; top: 0; padding: 8px 18px 8px; background: #f7edd0; border: 4px solid #1d1a1c; border-radius: 12px;
+          font-weight: 800; font-size: 30px; line-height: 1.1; white-space: nowrap; box-shadow: 6px 6px 0 rgba(29,26,28,0.9); }
+        #s2-idea .lbl small { display: block; font-weight: 600; font-size: 20px; opacity: 0.8; margin-top: 3px; }
+        #s2-idea .lbl.hot { background: #1d1a1c; color: #f7edd0; box-shadow: 6px 6px 0 #d4401c; }
+        #s2-idea #s2-sword { left: 104px; top: 372px; width: 800px; height: 300px; transform-origin: 106px 150px; }
+        #s2-idea .scr { position: absolute; left: 0; top: 0; width: 640px; height: 360px; overflow: hidden; background: #cdb98c; }
+        #s2-idea .scr img { position: absolute; display: block; }
+        #s2-idea #s2-line { position: absolute; left: 120px; width: 1680px; top: 722px; text-align: center; font-weight: 800; font-size: 54px; letter-spacing: -0.01em; line-height: 1.15; }
+        #s2-idea #s2-line .hot { color: #d4401c; }
+      </style>
+      <div id="s2-idea" data-composition-id="s2-idea" data-width="1920" data-height="1080">
+        <div class="grid"></div>
+        <div class="vig"></div>
+
+        <div class="abs stamp" id="s2-stamp">ILLUSTRATION<small>not footage, not a photo</small></div>
+
+        <!-- sword + strapped Joy-Con 2 (one rotating group: it swings from the grip) -->
+        <div class="abs" id="s2-sword">
+          <svg class="abs" id="s2-blade" width="800" height="300" viewBox="0 0 800 300" style="overflow:visible">
+            <path id="s2-blade-p" pathLength="1" d="M214 136 L726 136 L786 150 L726 164 L214 164 Z" fill="#cfd9e6" fill-opacity="0" stroke="#1d1a1c" stroke-width="6" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
+            <path id="s2-blade-l" pathLength="1" d="M236 150 L740 150" stroke="#1d1a1c" stroke-width="2.5" opacity="0.35" stroke-dasharray="1" stroke-dashoffset="1" fill="none" />
+            <ellipse id="s2-guard" cx="200" cy="150" rx="15" ry="54" fill="#f1b02f" fill-opacity="0" stroke="#1d1a1c" stroke-width="6" />
+            <rect id="s2-grip" x="22" y="130" width="170" height="40" rx="14" fill="#24304f" fill-opacity="0" stroke="#1d1a1c" stroke-width="6" />
+            <g id="s2-wrap" opacity="0" stroke="#f1b02f" stroke-width="4" fill="none">
+              <path d="M52 134 L72 166 M84 134 L104 166 M116 134 L136 166 M148 134 L168 166" />
+              <path d="M72 134 L52 166 M104 134 L84 166 M136 134 L116 166 M168 134 L148 166" />
+            </g>
+            <circle id="s2-pommel" cx="18" cy="150" r="14" fill="#f1b02f" fill-opacity="0" stroke="#1d1a1c" stroke-width="6" />
+          </svg>
+          <!-- Joy-Con 2 (generic stylised controller) -->
+          <svg class="abs" id="s2-joycon" width="260" height="120" viewBox="0 0 260 120" style="left:232px; top:56px; overflow:visible">
+            <rect x="8" y="14" width="238" height="74" rx="34" fill="#2f7f86" stroke="#1d1a1c" stroke-width="6" />
+            <rect x="26" y="26" width="70" height="8" rx="4" fill="#ffffff" opacity="0.25" />
+            <circle cx="70" cy="51" r="19" fill="#1d1a1c" /><circle cx="70" cy="51" r="11" fill="#3b3a44" />
+            <circle cx="178" cy="34" r="7.5" fill="#f7edd0" stroke="#1d1a1c" stroke-width="3" /><circle cx="178" cy="68" r="7.5" fill="#f7edd0" stroke="#1d1a1c" stroke-width="3" />
+            <circle cx="160" cy="51" r="7.5" fill="#f7edd0" stroke="#1d1a1c" stroke-width="3" /><circle cx="196" cy="51" r="7.5" fill="#f7edd0" stroke="#1d1a1c" stroke-width="3" />
+            <rect x="124" y="70" width="52" height="10" rx="5" fill="#1d1a1c" opacity="0.55" />
+          </svg>
+          <!-- straps -->
+          <div class="abs" id="s2-strap1" style="left:262px; top:58px; width:24px; height:122px; background:#6b3b24; border:4px solid #1d1a1c; border-radius:8px; transform-origin:50% 0;"></div>
+          <div class="abs" id="s2-strap2" style="left:402px; top:58px; width:24px; height:122px; background:#6b3b24; border:4px solid #1d1a1c; border-radius:8px; transform-origin:50% 0;"></div>
+        </div>
+
+        <!-- bluetooth link -->
+        <svg class="abs" id="s2-arcs" width="400" height="400" viewBox="0 0 400 400" style="left:520px; top:150px; overflow:visible;">
+          <g fill="none" stroke="#2f7f86" stroke-width="7" stroke-linecap="round">
+            <path id="s2-arc1" d="M200 140 A60 60 0 0 1 200 260" opacity="0" />
+            <path id="s2-arc2" d="M200 110 A90 90 0 0 1 200 290" opacity="0" />
+            <path id="s2-arc3" d="M200 80 A120 120 0 0 1 200 320" opacity="0" />
+          </g>
+        </svg>
+        <svg class="abs" data-layout-ignore width="1000" height="200" viewBox="0 0 1000 200" style="left:0; top:0; overflow:visible; pointer-events:none;">
+          <path id="s2-link" pathLength="1" d="M720 430 C 800 380, 880 480, 1000 430" fill="none" stroke="#1d1a1c" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.04 0.03" stroke-dashoffset="0" style="clip-path: inset(0 100% 0 0);" />
+        </svg>
+        <div class="abs" id="s2-bt" style="left:818px; top:392px; width:84px; height:84px; border-radius:50%; background:#2f7f86; border:5px solid #1d1a1c; box-shadow: 5px 5px 0 rgba(29,26,28,0.9);">
+          <svg width="74" height="74" viewBox="0 0 24 24"><path d="M7 7.5 L17 16.5 L12 21 L12 3 L17 7.5 L7 16.5" fill="none" stroke="#f7edd0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        </div>
+        <div class="abs" id="s2-dots">
+          <div class="abs dot" style="width:16px;height:16px;border-radius:50%;background:#d4401c;border:3px solid #1d1a1c;left:-8px;top:-8px;opacity:0"></div>
+          <div class="abs dot" style="width:16px;height:16px;border-radius:50%;background:#d4401c;border:3px solid #1d1a1c;left:-8px;top:-8px;opacity:0"></div>
+          <div class="abs dot" style="width:16px;height:16px;border-radius:50%;background:#d4401c;border:3px solid #1d1a1c;left:-8px;top:-8px;opacity:0"></div>
+          <div class="abs dot" style="width:16px;height:16px;border-radius:50%;background:#d4401c;border:3px solid #1d1a1c;left:-8px;top:-8px;opacity:0"></div>
+        </div>
+
+        <!-- laptop -->
+        <div class="abs" id="s2-mac" style="left:1050px; top:190px; width:700px; height:520px;">
+          <div class="abs" style="left:0; top:0; width:668px; height:412px; background:#1d1a1c; border-radius:26px; border:5px solid #1d1a1c;"></div>
+          <div class="abs" style="left:14px; top:14px; width:640px; height:360px; border-radius:12px; overflow:hidden;">
+            <div class="scr" id="s2-scr">
+              <img src="assets/bg/bg_classic_far.jpg" style="left:-30px; top:-18px; width:700px; height:394px;" />
+              <img src="assets/bg/bg_classic_mid.png" style="left:-22px; top:-14px; width:684px; height:385px;" />
+              <img src="assets/bg/bg_classic_near.png" style="left:-26px; top:-14px; width:692px; height:389px;" />
+              <!-- fruits to be cut: x/y wrappers + whole + halves + splash -->
+              <div class="abs fruit" id="s2-f1x"><div class="abs" id="s2-f1y"><img class="abs" id="s2-f1w" src="assets/sprites/fruit_watermelon_whole.png" width="120" height="120" style="left:-60px;top:-60px"/>
+                <div class="abs" id="s2-f1ax"><div class="abs" id="s2-f1ay"><img class="abs" id="s2-f1a" src="assets/sprites/fruit_watermelon_half_a.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <div class="abs" id="s2-f1bx"><div class="abs" id="s2-f1by"><img class="abs" id="s2-f1b" src="assets/sprites/fruit_watermelon_half_b.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <img class="abs" id="s2-f1s" src="assets/sprites/fx_splash_watermelon.png" width="170" height="170" style="left:-85px;top:-85px;opacity:0"/></div></div>
+              <div class="abs fruit" id="s2-f2x"><div class="abs" id="s2-f2y"><img class="abs" id="s2-f2w" src="assets/sprites/fruit_apple_whole.png" width="120" height="120" style="left:-60px;top:-60px"/>
+                <div class="abs" id="s2-f2ax"><div class="abs" id="s2-f2ay"><img class="abs" id="s2-f2a" src="assets/sprites/fruit_apple_half_a.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <div class="abs" id="s2-f2bx"><div class="abs" id="s2-f2by"><img class="abs" id="s2-f2b" src="assets/sprites/fruit_apple_half_b.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <img class="abs" id="s2-f2s" src="assets/sprites/fx_splash_apple.png" width="170" height="170" style="left:-85px;top:-85px;opacity:0"/></div></div>
+              <div class="abs fruit" id="s2-f3x"><div class="abs" id="s2-f3y"><img class="abs" id="s2-f3w" src="assets/sprites/fruit_orange_whole.png" width="120" height="120" style="left:-60px;top:-60px"/>
+                <div class="abs" id="s2-f3ax"><div class="abs" id="s2-f3ay"><img class="abs" id="s2-f3a" src="assets/sprites/fruit_orange_half_a.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <div class="abs" id="s2-f3bx"><div class="abs" id="s2-f3by"><img class="abs" id="s2-f3b" src="assets/sprites/fruit_orange_half_b.png" width="120" height="120" style="left:-60px;top:-60px;opacity:0"/></div></div>
+                <img class="abs" id="s2-f3s" src="assets/sprites/fx_splash_orange.png" width="170" height="170" style="left:-85px;top:-85px;opacity:0"/></div></div>
+              <svg class="abs" width="640" height="360" viewBox="0 0 640 360" style="overflow:visible">
+                <path id="s2-t1o" pathLength="1" d="M170 90 L470 270" stroke="#1d1a1c" stroke-width="16" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+                <path id="s2-t1" pathLength="1" d="M170 90 L470 270" stroke="#fff6df" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+                <path id="s2-t2o" pathLength="1" d="M200 280 L440 90" stroke="#1d1a1c" stroke-width="16" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+                <path id="s2-t2" pathLength="1" d="M200 280 L440 90" stroke="#fff6df" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+                <path id="s2-t3o" pathLength="1" d="M190 80 L470 285" stroke="#1d1a1c" stroke-width="16" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+                <path id="s2-t3" pathLength="1" d="M190 80 L470 285" stroke="#fff6df" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+              </svg>
+              <img class="abs" id="s2-cur" src="assets/ui/cursor_cutting.png" width="52" height="55" style="left:-8px; top:-8px; opacity:0" />
+            </div>
+          </div>
+          <div class="abs" style="left:-36px; top:408px; width:740px; height:34px; background:#d9ceb4; border:5px solid #1d1a1c; border-radius: 4px 4px 34px 34px;"></div>
+          <div class="abs" style="left:280px; top:410px; width:110px; height:10px; background:#b7ab90; border-radius:0 0 12px 12px;"></div>
+        </div>
+
+        <!-- labels -->
+        <div class="lbl" id="s2-l-sword" style="left:230px; top:642px;">3D-printed sword</div>
+        <div class="lbl hot" id="s2-l-joy" style="left:80px; top:296px;">Joy-Con 2</div>
+        <div class="lbl" id="s2-l-mac" style="left:1380px; top:118px;">Your Mac</div>
+        <div class="lbl" id="s2-l-hz" style="left:650px; top:548px;">about 33 samples per second<small>Bluetooth, verified on a real Joy-Con 2</small></div>
+
+        <svg class="abs" width="1920" height="1080" viewBox="0 0 1920 1080" style="pointer-events:none; overflow:visible;">
+          <path id="s2-ld1" pathLength="1" d="M330 640 L318 510" stroke="#1d1a1c" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+          <circle id="s2-ld1c" cx="316" cy="502" r="9" fill="#d4401c" stroke="#1d1a1c" stroke-width="4" opacity="0" />
+          <path id="s2-ld2" pathLength="1" d="M226 322 L384 322" stroke="#1d1a1c" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="1" stroke-dashoffset="1" />
+          <circle id="s2-ld2c" cx="392" cy="322" r="9" fill="#d4401c" stroke="#1d1a1c" stroke-width="4" opacity="0" />
+        </svg>
+        <div id="s2-line">Motion controls, Bluetooth, no extra hardware</div>
+      </div>
+      <script>
+        (function () {
+          var T = 5.0;
+          var K = KF.scene(T, document.getElementById("s2-idea"));
+          var E = KF.E;
+          // stamp
+          K.track("#s2-stamp", [{ t: 0, s: 2.4, r: -14, o: 0 }, { t: 0.3, s: 2.4, r: -14, o: 0, ease: E.out }, { t: 0.5, s: 1.0, r: -5, o: 1 }]);
+          // sword draw-in
+          K.track("#s2-blade-p", [{ t: 0, css: { strokeDashoffset: 1, fillOpacity: 0 } }, { t: 0.35, css: { strokeDashoffset: 1, fillOpacity: 0 }, ease: E.inout }, { t: 1.2, css: { strokeDashoffset: 0, fillOpacity: 0 } }, { t: 1.7, css: { strokeDashoffset: 0, fillOpacity: 1 } }], { ease: E.lin });
+          K.track("#s2-blade-l", [{ t: 0, css: { strokeDashoffset: 1 } }, { t: 1.2, css: { strokeDashoffset: 1 }, ease: E.inout }, { t: 1.9, css: { strokeDashoffset: 0 } }]);
+          K.track("#s2-guard", [{ t: 0, css: { fillOpacity: 0 }, o: 0 }, { t: 0.5, o: 0, css: { fillOpacity: 0 }, ease: E.out }, { t: 0.9, o: 1, css: { fillOpacity: 1 } }]);
+          K.track("#s2-grip", [{ t: 0, css: { fillOpacity: 0 }, o: 0 }, { t: 0.4, o: 0, css: { fillOpacity: 0 }, ease: E.out }, { t: 0.85, o: 1, css: { fillOpacity: 1 } }]);
+          K.track("#s2-pommel", [{ t: 0, css: { fillOpacity: 0 }, o: 0 }, { t: 0.55, o: 0, css: { fillOpacity: 0 }, ease: E.out }, { t: 0.95, o: 1, css: { fillOpacity: 1 } }]);
+          K.track("#s2-wrap", [{ t: 0, o: 0 }, { t: 1.0, o: 0 }, { t: 1.5, o: 1 }]);
+          // sword label
+          K.track("#s2-l-sword", [{ t: 0, s: 0.6, o: 0, y: 14 }, { t: 1.2, s: 0.6, o: 0, y: 14, ease: E.back }, { t: 1.6, s: 1, o: 1, y: 0, ease: E.lin }, { t: 5.0, s: 1, o: 1, y: 0, ease: E.lin }, { t: 5.35, s: 1, o: 0, y: 0 }]);
+          K.track("#s2-ld1", [{ t: 0, o: 1, css: { strokeDashoffset: 1 } }, { t: 1.5, css: { strokeDashoffset: 1 }, ease: E.out }, { t: 1.9, css: { strokeDashoffset: 0 }, ease: E.lin }, { t: 5.0, o: 1, ease: E.lin }, { t: 5.35, o: 0 }]);
+          K.track("#s2-ld1c", [{ t: 0, s: 0, o: 0 }, { t: 1.8, s: 0, o: 0, ease: E.back }, { t: 2.1, s: 1, o: 1, ease: E.lin }, { t: 5.0, s: 1, o: 1, ease: E.lin }, { t: 5.35, s: 1, o: 0 }]);
+          K.track("#s2-ld2", [{ t: 0, o: 1, css: { strokeDashoffset: 1 } }, { t: 2.5, css: { strokeDashoffset: 1 }, ease: E.out }, { t: 2.9, css: { strokeDashoffset: 0 }, ease: E.lin }, { t: 5.0, o: 1, ease: E.lin }, { t: 5.35, o: 0 }]);
+          K.track("#s2-ld2c", [{ t: 0, s: 0, o: 0 }, { t: 2.8, s: 0, o: 0, ease: E.back }, { t: 3.1, s: 1, o: 1, ease: E.lin }, { t: 5.0, s: 1, o: 1, ease: E.lin }, { t: 5.35, s: 1, o: 0 }]);
+          // Joy-Con slides on, then straps
+          K.track("#s2-joycon", [{ t: 0, x: 120, y: -230, r: 14, o: 0 }, { t: 1.7, x: 120, y: -230, r: 14, o: 0, ease: E.back }, { t: 2.3, x: 0, y: 0, r: 0, o: 1 }]);
+          K.track("#s2-strap1", [{ t: 0, sy: 0, o: 0 }, { t: 2.4, sy: 0, o: 0, ease: E.back }, { t: 2.7, sy: 1, o: 1 }]);
+          K.track("#s2-strap2", [{ t: 0, sy: 0, o: 0 }, { t: 2.7, sy: 0, o: 0, ease: E.back }, { t: 3.0, sy: 1, o: 1 }]);
+          K.track("#s2-l-joy", [{ t: 0, s: 0.6, o: 0, y: 14 }, { t: 2.4, s: 0.6, o: 0, y: 14, ease: E.back }, { t: 2.8, s: 1, o: 1, y: 0, ease: E.lin }, { t: 5.0, s: 1, o: 1, y: 0, ease: E.lin }, { t: 5.35, s: 1, o: 0, y: 0 }]);
+
+          // laptop + link
+          K.track("#s2-mac", [{ t: 0, x: 90, o: 0 }, { t: 3.7, x: 90, o: 0, ease: E.out }, { t: 4.4, x: 0, o: 1 }]);
+          K.track("#s2-bt", [{ t: 0, s: 0, o: 0 }, { t: 3.8, s: 0, o: 0, ease: E.back }, { t: 4.2, s: 1, o: 1 }]);
+          [1, 2, 3].forEach(function (n) {
+            var b = 3.9 + (n - 1) * 0.18, keys = [{ t: 0, o: 0 }];
+            for (var c = 0; c < 5; c++) {
+              var s = b + c * 0.9;
+              keys.push({ t: s, o: 0, ease: E.out }); keys.push({ t: s + 0.25, o: 1, ease: E.soft }); keys.push({ t: s + 0.75, o: 0 });
+            }
+            K.track("#s2-arc" + n, keys, { ease: E.lin });
+          });
+          K.track("#s2-link", [{ t: 0, css: { clipPath: "inset(0 100% 0 0)" } }, { t: 4.2, css: { clipPath: "inset(0 100% 0 0)" }, ease: E.out }, { t: 5.0, css: { clipPath: "inset(0 0% 0 0)" } }]);
+          K.track("#s2-l-hz", [{ t: 0, s: 0.6, o: 0, y: 14 }, { t: 4.8, s: 0.6, o: 0, y: 14, ease: E.back }, { t: 5.2, s: 1, o: 1, y: 0 }]);
+          // packets travelling along the link (approximate bezier by 3 keyframes)
+          K.$$("#s2-dots .dot").forEach(function (d, i) {
+            var keys = [{ t: 0, x: 720, y: 430, o: 0 }];
+            for (var c = 0; c < 6; c++) {
+              var s = 5.1 + c * 0.75 + i * 0.19;
+              keys.push({ t: s, x: 720, y: 430, o: 0, ease: E.lin });
+              keys.push({ t: s + 0.08, x: 745, y: 428, o: 1, ease: E.lin });
+              keys.push({ t: s + 0.32, x: 835, y: 436, o: 1, ease: E.lin });
+              keys.push({ t: s + 0.6, x: 940, y: 440, o: 1, ease: E.lin });
+              keys.push({ t: s + 0.72, x: 1005, y: 430, o: 0 });
+            }
+            K.track(d, keys, { ease: E.lin });
+          });
+
+          // three swings (sword group) and three cuts on the laptop screen
+          var sw = [5.45, 7.35, 8.65];
+          var swing = [{ t: 0, r: -34, s: 1.12 }];
+          sw.forEach(function (s, i) {
+            swing.push({ t: s - 0.35, r: -34, s: 1.12, ease: E.inout });
+            swing.push({ t: s, r: 6, s: 1.12, ease: E.soft });
+            swing.push({ t: s + 0.12, r: 6, s: 1.12, ease: E.inout });
+            swing.push({ t: s + 0.85, r: -34, s: 1.12 });
+          });
+          K.track("#s2-sword", swing, { ease: E.inout });
+
+          var cuts = [
+            { i: 1, tc: 5.7, fx: 300, fy: 210, trail: "t1", dx: 1, dy: 0 },
+            { i: 2, tc: 7.6, fx: 330, fy: 190, trail: "t2", dx: 1, dy: 0 },
+            { i: 3, tc: 8.9, fx: 320, fy: 200, trail: "t3", dx: 1, dy: 0 }
+          ];
+          cuts.forEach(function (c) {
+            var p = "#s2-f" + c.i;
+            // rise
+            K.track(p + "x", [{ t: 0, x: c.fx - 40 }, { t: c.tc - 1.0, x: c.fx - 40, ease: E.lin }, { t: c.tc + 0.05, x: c.fx }], { ease: E.lin });
+            K.track(p + "y", [{ t: 0, y: 460 }, { t: c.tc - 1.0, y: 460, ease: E.out }, { t: c.tc + 0.05, y: c.fy }]);
+            K.track(p + "w", [{ t: 0, o: 0, r: -30 }, { t: c.tc - 1.0, o: 0, r: -30, ease: E.lin }, { t: c.tc - 0.95, o: 1, ease: E.out }, { t: c.tc + 0.05, r: 20, o: 1 }, { t: c.tc + 0.06, o: 0 }], { ease: E.lin });
+            // halves
+            K.track(p + "ax", [{ t: 0, x: 0 }, { t: c.tc + 0.05, x: 0, ease: E.lin }, { t: c.tc + 0.9, x: -80 }], { ease: E.out });
+            K.track(p + "ay", [{ t: 0, y: 0 }, { t: c.tc + 0.05, y: 0, ease: E.out }, { t: c.tc + 0.25, y: -22, ease: E.in }, { t: c.tc + 0.9, y: 240 }]);
+            K.track(p + "a", [{ t: 0, o: 0, r: 20 }, { t: c.tc + 0.05, o: 0, r: 20 }, { t: c.tc + 0.06, o: 1, r: 20, ease: E.out }, { t: c.tc + 0.9, r: -40, o: 1 }, { t: c.tc + 1.0, o: 0 }], { ease: E.lin });
+            K.track(p + "bx", [{ t: 0, x: 0 }, { t: c.tc + 0.05, x: 0, ease: E.lin }, { t: c.tc + 0.9, x: 80 }], { ease: E.out });
+            K.track(p + "by", [{ t: 0, y: 0 }, { t: c.tc + 0.05, y: 0, ease: E.out }, { t: c.tc + 0.25, y: -22, ease: E.in }, { t: c.tc + 0.9, y: 240 }]);
+            K.track(p + "b", [{ t: 0, o: 0, r: 20 }, { t: c.tc + 0.05, o: 0, r: 20 }, { t: c.tc + 0.06, o: 1, r: 20, ease: E.out }, { t: c.tc + 0.9, r: 80, o: 1 }, { t: c.tc + 1.0, o: 0 }], { ease: E.lin });
+            K.track(p + "s", [{ t: 0, s: 0.3, o: 0 }, { t: c.tc + 0.05, s: 0.3, o: 0, ease: E.out }, { t: c.tc + 0.12, s: 0.8, o: 0.95, ease: E.out }, { t: c.tc + 0.7, s: 1.15, o: 0 }]);
+            // trail draws just before the cut and fades after
+            ["#s2-" + c.trail + "o", "#s2-" + c.trail].forEach(function (q) {
+              K.track(q, [{ t: 0, css: { strokeDashoffset: 1 }, o: 0 }, { t: c.tc - 0.3, css: { strokeDashoffset: 1 }, o: 1, ease: E.inout }, { t: c.tc + 0.12, css: { strokeDashoffset: 0 }, o: 1, ease: E.soft }, { t: c.tc + 0.5, o: 0 }], { ease: E.lin });
+            });
+          });
+          // cursor follows the trails (blade cursor)
+          var cur = [{ t: 0, x: 0, y: 0, o: 0 }];
+          var paths = [[170, 90, 470, 270], [200, 280, 440, 90], [190, 80, 470, 285]];
+          cuts.forEach(function (c, i) {
+            var p = paths[i];
+            cur.push({ t: c.tc - 0.4, x: p[0], y: p[1], o: 0, ease: E.out });
+            cur.push({ t: c.tc - 0.3, x: p[0], y: p[1], o: 1, ease: E.inout });
+            cur.push({ t: c.tc + 0.12, x: p[2], y: p[3], o: 1, ease: E.soft });
+            cur.push({ t: c.tc + 0.45, x: p[2], y: p[3], o: 0 });
+          });
+          K.track("#s2-cur", cur, { ease: E.lin });
+
+          // bottom line: words in
+          var line = K.$("#s2-line");
+          var ws = KF.words(line, false);
+          ws.forEach(function (w, i) {
+            var o = 6.6 + i * 0.16;
+            K.track(w, [{ t: 0, y: 40, o: 0 }, { t: o, y: 40, o: 0, ease: E.out }, { t: o + 0.5, y: 0, o: 1 }]);
+          });
+          ws[2].classList.add("hot");
+          K.track("#s2-l-mac", [{ t: 0, s: 0.6, o: 0, y: 14 }, { t: 4.3, s: 0.6, o: 0, y: 14, ease: E.back }, { t: 4.7, s: 1, o: 1, y: 0 }]);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

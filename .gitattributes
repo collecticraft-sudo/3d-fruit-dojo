@@ -1,0 +1,14 @@
+* text=auto eol=lf
+*.command text eol=lf
+*.sh text eol=lf
+# design/assets.csv is written with CRLF line endings and a test hashes it: never normalise it
+design/assets.csv -text
+public/assets/PROVENANCE.csv text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.woff2 binary
+*.ttf binary
+*.jsonl text eol=lf

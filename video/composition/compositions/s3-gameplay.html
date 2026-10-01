@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s3-play { position: absolute; inset: 0; overflow: hidden; font-family: Montserrat, Inter, sans-serif; }
+        #s3-play .abs { position: absolute; left: 0; top: 0; }
+        #s3-play .chip { position: absolute; left: 44px; bottom: 22px; padding: 6px 18px 5px; background: #1d1a1c; color: #f7edd0; border-radius: 10px; border: 3px solid #f1b02f;
+          font-weight: 800; font-size: 25px; letter-spacing: 0.08em; white-space: nowrap; }
+        #s3-play .chip small { font-weight: 600; font-size: 21px; letter-spacing: 0.02em; opacity: 0.85; margin-left: 10px; }
+        #s3-play .chip.red { border-color: #d4401c; }
+        #s3-play #s3-real { position: absolute; right: 44px; bottom: 22px; padding: 6px 16px 5px; background: rgba(29,26,28,0.82); color: #f7edd0; border-radius: 10px;
+          font-weight: 600; font-size: 21px; white-space: nowrap; }
+        #s3-play #s3-real b { color: #f1b02f; font-weight: 800; }
+      </style>
+      <div id="s3-play" data-composition-id="s3-play" data-width="1920" data-height="1080">
+        <div class="chip" id="s3-c1">CLASSIC<small>survive, three lives</small></div>
+        <div class="chip" id="s3-c2">ARCADE<small>sixty seconds, best score</small></div>
+        <div class="chip" id="s3-c3">ZEN<small>ninety calm seconds, no bombs</small></div>
+        <div class="chip" id="s3-c4">COMBO<small>several fruit, one swing</small></div>
+        <div class="chip red" id="s3-c5">BOMB<small>cut one and you lose a life</small></div>
+        <div class="chip" id="s3-c6">FREEZE<small>power-up: time slows down</small></div>
+        <div id="s3-real"><b>Real gameplay</b>, played by the built-in simulator bot</div>
+      </div>
+      <script>
+        (function () {
+          var T = 14.6;
+          var K = KF.scene(T, document.getElementById("s3-play"));
+          var E = KF.E;
+          // clip windows (composition time, same numbers as index.html): classic 14.6, arcade 19.0, zen 23.4, combo 27.6, bomb 29.3, freeze 31.0, end 32.8
+          var st = [14.6, 19.0, 23.4, 27.6, 29.3, 31.0], en = [19.0, 23.4, 27.6, 29.3, 31.0, 32.8];
+          st.forEach(function (s, i) {
+            var a = s - T + 0.25, b = en[i] - T - 0.12;
+            K.track("#s3-c" + (i + 1), [{ t: 0, x: -60, o: 0 }, { t: a, x: -60, o: 0, ease: E.out }, { t: a + 0.35, x: 0, o: 1 }, { t: b, x: 0, o: 1, ease: E.in }, { t: b + 0.12, x: 0, o: 0 }]);
+          });
+          K.track("#s3-real", [{ t: 0, o: 0 }, { t: 0.5, o: 0, ease: E.out }, { t: 0.9, o: 1 }, { t: 17.9, o: 1, ease: E.lin }, { t: 18.1, o: 0 }]);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

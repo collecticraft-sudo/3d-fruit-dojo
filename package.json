@@ -1,0 +1,25 @@
+{
+  "name": "joycon-ninja",
+  "version": "1.0.0",
+  "private": true,
+  "description": "3D Fruit Dojo: a fruit-slicing web game played by swinging a 3D-printed sword with a Nintendo Switch 2 Joy-Con 2 strapped to it. Runs offline in the browser (HTML5 Canvas 2D, no runtime dependencies). The game, its code and its documentation are all in English.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test --test-timeout=120000 --test-concurrency=5 \"test/**/*.test.js\"",
+    "test:unit": "node --test --test-timeout=120000 \"test/{shared,input,motion,game,render,audio,ui,architecture,server,app,bridge,assets}/**/*.test.js\"",
+    "test:e2e": "node --test --test-timeout=120000 --test-concurrency=3 \"test/e2e/**/*.test.js\"",
+    "build:bridge": "bash bridge/build.sh",
+    "build:assets": "node tools/build-assets.mjs"
+  },
+  "license": "MIT",
+  "author": "collecticraft-sudo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collecticraft-sudo/3d-fruit-dojo.git"
+  },
+  "homepage": "https://github.com/collecticraft-sudo/3d-fruit-dojo#readme"
+}

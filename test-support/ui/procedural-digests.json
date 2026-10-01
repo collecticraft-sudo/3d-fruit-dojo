@@ -1,0 +1,214 @@
+{
+  "scenes": {
+    "boot": {
+      "calls": 9,
+      "digest": "489086f3db9089de"
+    },
+    "safety-wait": {
+      "calls": 347,
+      "digest": "da4b2e18bd4fd605"
+    },
+    "safety-ready": {
+      "calls": 360,
+      "digest": "9847c0cd1f943f54"
+    },
+    "connect-legacy": {
+      "calls": 297,
+      "digest": "d773c3279f95945a"
+    },
+    "connect-legacy-error": {
+      "calls": 358,
+      "digest": "41dc783ea8a05303"
+    },
+    "connect-native": {
+      "calls": 364,
+      "digest": "30d407be4864ffeb"
+    },
+    "connect-native-busy": {
+      "calls": 406,
+      "digest": "d6b018c1501e69ec"
+    },
+    "connect-native-connected": {
+      "calls": 321,
+      "digest": "348c3f549a006991"
+    },
+    "calibration-1": {
+      "calls": 188,
+      "digest": "d359a4b4b6648619"
+    },
+    "calibration-2": {
+      "calls": 131,
+      "digest": "3793775db00f0fd4"
+    },
+    "calibration-3": {
+      "calls": 189,
+      "digest": "e1441d3b5058732a"
+    },
+    "calibration-4": {
+      "calls": 183,
+      "digest": "2c920a76c370b997"
+    },
+    "menu": {
+      "calls": 305,
+      "digest": "6ed6d2ffa521b102"
+    },
+    "menu-hover": {
+      "calls": 312,
+      "digest": "6b7f6bfeff09dd73"
+    },
+    "menu-hover-button": {
+      "calls": 305,
+      "digest": "2109ecbd9b09ef88"
+    },
+    "settings": {
+      "calls": 602,
+      "digest": "f0c02984f5c7971d"
+    },
+    "settings-hover-toggle": {
+      "calls": 608,
+      "digest": "019d8aacd8f12249"
+    },
+    "settings-hover-step": {
+      "calls": 608,
+      "digest": "33ffbeabd1ef37c2"
+    },
+    "tuning": {
+      "calls": 1528,
+      "digest": "6d498a6af57e8f17"
+    },
+    "countdown": {
+      "calls": 310,
+      "digest": "d8f39ec1793a6ec0"
+    },
+    "paused": {
+      "calls": 231,
+      "digest": "202407d93eeea5b0"
+    },
+    "resume-countdown": {
+      "calls": 22,
+      "digest": "73d70fb935720a3c"
+    },
+    "results-classic": {
+      "calls": 652,
+      "digest": "4c64c162631d3db7"
+    },
+    "results-zen": {
+      "calls": 393,
+      "digest": "0a657be1d453c670"
+    },
+    "disc-waiting": {
+      "calls": 41,
+      "digest": "8ca2227a7a047587"
+    },
+    "disc-recentering": {
+      "calls": 46,
+      "digest": "6143ecede85cb3a0"
+    },
+    "disc-failed": {
+      "calls": 189,
+      "digest": "efa3b6aa20a80f5b"
+    },
+    "disc-native-failed": {
+      "calls": 181,
+      "digest": "ec5078c6d2f83097"
+    },
+    "disc-native-reconnecting": {
+      "calls": 117,
+      "digest": "9708f918b80a9581"
+    },
+    "confirm-quit": {
+      "calls": 138,
+      "digest": "32c98e87af751632"
+    },
+    "confirm-reset": {
+      "calls": 132,
+      "digest": "688785d8f010f91d"
+    },
+    "hud-classic": {
+      "calls": 112,
+      "digest": "d6b1d395c7709538"
+    },
+    "hud-arcade": {
+      "calls": 241,
+      "digest": "24db7a3844398561"
+    },
+    "hud-arcade-low": {
+      "calls": 128,
+      "digest": "20e7159359d5e5ea"
+    },
+    "hud-zen": {
+      "calls": 116,
+      "digest": "b60b93c161a7e1e4"
+    },
+    "hud-practice": {
+      "calls": 0,
+      "digest": "811c9dc5dfadbf7c"
+    }
+  },
+  "widgets": {
+    "panel-default": {
+      "calls": 22,
+      "digest": "64578279c102fb58"
+    },
+    "panel-fill": {
+      "calls": 22,
+      "digest": "91771763df3fb606"
+    },
+    "button-primary": {
+      "calls": 49,
+      "digest": "19b0910e4dcf364f"
+    },
+    "button-primary-hover": {
+      "calls": 49,
+      "digest": "c4d285ac3ca2f679"
+    },
+    "button-primary-disabled": {
+      "calls": 45,
+      "digest": "84bf21b08f650ff5"
+    },
+    "button-secondary-inset": {
+      "calls": 49,
+      "digest": "5ea40a164a6a35ab"
+    },
+    "button-secondary-hover": {
+      "calls": 49,
+      "digest": "46ccccf653c30343"
+    },
+    "button-secondary-tiny": {
+      "calls": 49,
+      "digest": "bea299fef73018e7"
+    },
+    "button-tilt": {
+      "calls": 49,
+      "digest": "3d755f506d7cb6a1"
+    },
+    "segment-active": {
+      "calls": 18,
+      "digest": "152a0026a957bfdb"
+    },
+    "segment-idle-hover": {
+      "calls": 18,
+      "digest": "a949a321968f1a2c"
+    },
+    "stepper-minus": {
+      "calls": 20,
+      "digest": "2becf7513d9ee39c"
+    },
+    "stepper-plus-hover": {
+      "calls": 22,
+      "digest": "6a63345441ae9219"
+    },
+    "ring": {
+      "calls": 12,
+      "digest": "dce21fe0abe13771"
+    },
+    "seal": {
+      "calls": 32,
+      "digest": "bb8b045e94f4418f"
+    },
+    "pill": {
+      "calls": 19,
+      "digest": "fcc99e0b85abc342"
+    }
+  }
+}

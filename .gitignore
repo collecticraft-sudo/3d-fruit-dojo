@@ -1,0 +1,32 @@
+# dependencies and build output
+node_modules/
+bridge/build/
+# generated QA evidence, renders and caches
+docs/qa/
+video/footage/
+video/renders/
+video/composition/renders/
+video/composition/assets/
+video/composition/audio/
+video/composition/footage/
+video/audio/final/
+video/audio/music/
+video/audio/sfx/
+video/audio/narration/
+video/draft/
+video/*.mp4
+video/*.jpg
+# recordings other than the fixture used by the tests
+recordings/*
+!recordings/imu-2026-09-30T18-42-24.jsonl
+# the 4k originals and raw generated sheets are kept out of git
+design/backgrounds/
+design/phase0/
+design/phase1/
+design/phase2/
+# local files
+.DS_Store
+*.log
+.env
+.env.*
+.claude/

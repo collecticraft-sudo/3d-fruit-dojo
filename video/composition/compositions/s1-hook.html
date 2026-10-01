@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s1-hook { position: absolute; inset: 0; overflow: hidden; background: #e9dcb9; }
+        #s1-hook .layer { position: absolute; will-change: transform; }
+        #s1-hook img { display: block; }
+        #s1-hook .abs { position: absolute; left: 0; top: 0; }
+        #s1-hook #s1-logo-wrap { left: 510px; top: 96px; width: 900px; height: 459px; }
+        #s1-hook #s1-logo { width: 900px; height: 459px; filter: drop-shadow(0 14px 0 rgba(28, 24, 30, 0.22)); }
+        #s1-hook #s1-plate { display: inline-block; padding: 10px 44px 14px; background: rgba(247, 237, 208, 0.94); border: 6px solid #1d1a1c; border-radius: 22px; box-shadow: 10px 10px 0 #1d1a1c; }
+        #s1-hook #s1-line {
+          position: absolute; left: 160px; width: 1600px; top: 626px; text-align: center;
+          font-family: Montserrat, sans-serif; font-weight: 800; font-size: 62px; letter-spacing: -0.01em; line-height: 1.12;
+          color: #1d1a1c;
+        }
+        #s1-hook #s1-line .hot { color: #d4401c; }
+        #s1-hook .ulb { position: absolute; left: 0; bottom: -4px; width: 100%; height: 12px; background: #d4401c; border-radius: 6px; transform-origin: 0 50%; display: block; }
+        #s1-hook .hl { position: absolute; left: 0; top: 0; }
+      </style>
+      <div id="s1-hook" data-composition-id="s1-hook" data-width="1920" data-height="1080">
+        <!-- three-layer parallax of the Classic backdrop -->
+        <div class="layer" id="s1-far" style="left:-150px; top:-80px; width:2220px; height:1248px;"><img src="assets/bg/bg_classic_far.jpg" width="2220" height="1248" /></div>
+        <div class="layer" id="s1-mid" style="left:-110px; top:-62px; width:2150px; height:1210px;"><img src="assets/bg/bg_classic_mid.png" width="2150" height="1210" /></div>
+
+        <!-- logo -->
+        <div class="abs" id="s1-logo-wrap"><div class="abs" id="s1-logo-clip" style="width:900px;height:459px;"><img id="s1-logo" src="assets/ui/logo_title.png" /></div></div>
+
+        <!-- flying orange that gets sliced -->
+        <div class="abs" id="s1-ox"><div class="abs" id="s1-oy"><img id="s1-orange" class="abs" src="assets/sprites/fruit_orange_whole.png" width="330" height="330" /></div></div>
+        <div class="abs" id="s1-hax"><div class="abs" id="s1-hay"><img id="s1-ha" class="abs" src="assets/sprites/fruit_orange_half_a.png" width="330" height="330" /></div></div>
+        <div class="abs" id="s1-hbx"><div class="abs" id="s1-hby"><img id="s1-hb" class="abs" src="assets/sprites/fruit_orange_half_b.png" width="330" height="330" /></div></div>
+        <img class="abs" id="s1-splash" src="assets/sprites/fx_splash_orange.png" width="760" height="760" style="left:580px; top:-40px; opacity:0;" />
+        <img class="abs" id="s1-flash" src="assets/fx/fx_slice_flash.png" width="900" height="478" style="left:510px; top:100px; opacity:0;" />
+        <img class="abs" id="s1-blade" src="assets/fx/fx_blade_trail_tex.png" width="1700" height="258" style="left:0; top:210px; opacity:0;" />
+
+        <div class="layer" id="s1-near" style="left:-130px; top:-62px; width:2200px; height:1238px;"><img src="assets/bg/bg_classic_near.png" width="2200" height="1238" /></div>
+
+        <!-- tagline -->
+        <div id="s1-line"><span id="s1-plate">What if your sword was the controller?</span></div>
+      </div>
+      <script>
+        (function () {
+          var K = KF.scene(0, document.getElementById("s1-hook"));
+          var E = KF.E;
+          // parallax: slow drift of the three layers (far moves least, near most)
+          K.track("#s1-far", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -22, s: 1.035 }], { ease: E.lin });
+          K.track("#s1-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -62, s: 1.04 }], { ease: E.lin });
+          K.track("#s1-near", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -130, s: 1.06 }], { ease: E.lin });
+
+          // orange flight (x linear, y with gravity-like ease, spin)
+          K.track("#s1-ox", [{ t: 0, x: 210, ease: E.lin }, { t: 1.05, x: 795 }], { ease: E.lin });
+          K.track("#s1-oy", [{ t: 0, y: 1130, ease: E.out }, { t: 1.05, y: 130 }]);
+          K.track("#s1-orange", [{ t: 0, r: -60, ease: E.out }, { t: 1.05, r: 40 }]);
+          K.track("#s1-orange", [{ t: 0, o: 1 }, { t: 1.049, o: 1 }, { t: 1.05, o: 0 }], { ease: E.lin });
+
+          // blade streak at t=1.0..1.4 and flash
+          K.track("#s1-blade", [{ t: 0, x: -1800, y: 0, r: -16, o: 0 }, { t: 0.98, x: -1800, o: 0 }, { t: 1.0, x: -1500, o: 1, ease: E.inout }, { t: 1.4, x: 1300, o: 1 }, { t: 1.55, x: 1500, o: 0 }], { ease: E.lin });
+          K.track("#s1-flash", [{ t: 0, s: 0.2, o: 0 }, { t: 1.04, s: 0.2, o: 0, ease: E.out }, { t: 1.12, s: 1.0, o: 1, ease: E.out }, { t: 1.55, s: 1.25, o: 0 }]);
+
+          // halves fly apart and fall
+          K.track("#s1-hax", [{ t: 0, x: 795 }, { t: 1.05, x: 795, ease: E.lin }, { t: 2.2, x: 330 }], { ease: E.lin });
+          K.track("#s1-hay", [{ t: 0, y: 130 }, { t: 1.05, y: 130, ease: E.out }, { t: 1.4, y: 40, ease: E.in }, { t: 2.3, y: 1250 }]);
+          K.track("#s1-ha", [{ t: 0, r: 40, o: 0 }, { t: 1.049, o: 0 }, { t: 1.05, o: 1, r: 40, ease: E.out }, { t: 2.3, r: -150 }]);
+          K.track("#s1-hbx", [{ t: 0, x: 795 }, { t: 1.05, x: 795, ease: E.lin }, { t: 2.2, x: 1260 }], { ease: E.lin });
+          K.track("#s1-hby", [{ t: 0, y: 130 }, { t: 1.05, y: 130, ease: E.out }, { t: 1.4, y: 40, ease: E.in }, { t: 2.3, y: 1250 }]);
+          K.track("#s1-hb", [{ t: 0, r: 40, o: 0 }, { t: 1.049, o: 0 }, { t: 1.05, o: 1, r: 40, ease: E.out }, { t: 2.3, r: 160 }]);
+          K.track("#s1-splash", [{ t: 0, s: 0.25, o: 0 }, { t: 1.05, s: 0.25, o: 0, ease: E.out }, { t: 1.12, s: 0.7, o: 1, ease: E.out }, { t: 1.7, s: 1.05, o: 0.0 }]);
+
+          // logo reveal: brush wipe from the left + pop
+          K.track("#s1-logo-clip", [{ t: 0, o: 1, css: { clipPath: "inset(0 100% 0 0)" } }, { t: 1.1, css: { clipPath: "inset(0 100% 0 0)" }, ease: E.out }, { t: 1.75, css: { clipPath: "inset(0 0% 0 0)" } }]);
+          K.track("#s1-logo-wrap", [{ t: 0, s: 0.9, y: 18 }, { t: 1.1, s: 0.9, y: 18, ease: E.back }, { t: 1.8, s: 1.0, y: 0, ease: E.soft }, { t: 5.0, s: 1.0, y: -10 }]);
+
+          // tagline words
+          var line = K.$("#s1-plate");
+          K.track(line, [{ t: 0, y: 40, o: 0, r: -2 }, { t: 2.05, y: 40, o: 0, r: -2, ease: E.back }, { t: 2.5, y: 0, o: 1, r: -0.6 }]);
+          var ws = KF.words(line, false);
+          ws.forEach(function (w, i) {
+            var o = 2.2 + i * 0.1;
+            K.track(w, [{ t: 0, y: 60, o: 0 }, { t: o, y: 60, o: 0, ease: E.out }, { t: o + 0.55, y: 0, o: 1 }]);
+          });
+          // "sword" gets the vermilion accent + a brush underline that grows after the words are in
+          ws[3].classList.add("hot");
+          var holder = ws[3].parentNode;
+          holder.style.position = "relative";
+          var ul = document.createElement("i");
+          ul.className = "ulb";
+          holder.appendChild(ul);
+          K.track(ul, [{ t: 0, sx: 0, o: 1 }, { t: 3.0, sx: 0, o: 1, ease: E.out }, { t: 3.5, sx: 1 }]);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

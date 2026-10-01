@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #wipes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+        #wipes .slab { position: absolute; left: -340px; top: -230px; width: 2600px; height: 1540px; transform-origin: 50% 50%; will-change: transform; }
+        #wipes .slab i { position: absolute; top: 0; bottom: 0; display: block; }
+        #wipes .slab .body { left: 0; right: 0; }
+        #wipes .slab .edge { right: 0; width: 90px; background: #d4401c; }
+        #wipes .slab .edge2 { right: 90px; width: 26px; background: #f1b02f; }
+        #wipes .slab .tail { left: 0; width: 18px; background: #f7edd0; }
+      </style>
+      <div id="wipes" data-composition-id="wipes" data-width="1920" data-height="1080"></div>
+      <script>
+        (function () {
+          var root = document.getElementById("wipes");
+          var K = KF.scene(0, root);
+          var E = KF.E;
+          // [time of the cut, half-duration]; big wipes between scenes, quick swipes between gameplay clips
+          var list = [[5.0, 0.22, 1], [14.6, 0.22, 1], [19.0, 0.14, 0], [23.4, 0.14, 0], [27.6, 0.14, 0], [29.3, 0.14, 0], [31.0, 0.14, 0], [32.8, 0.22, 1], [36.1, 0.14, 0], [41.3, 0.22, 1]];
+          list.forEach(function (w, i) {
+            var slab = document.createElement("div");
+            slab.className = "slab";
+            slab.style.opacity = "0";
+            slab.innerHTML = '<i class="body" style="background:' + (w[2] ? "#1d1a1c" : "#1d1a1c") + '"></i><i class="tail"></i><i class="edge2"></i><i class="edge"></i>';
+            root.appendChild(slab);
+            var rot = w[2] ? -11 : -7;
+            var t = w[0], h = w[1];
+            K.track(slab, [
+              { t: 0, x: -3300, r: rot, o: 0 },
+              { t: t - h - 0.01, x: -3300, r: rot, o: 0 },
+              { t: t - h, x: -3300, r: rot, o: 1, ease: "cubic-bezier(0.2,0.65,0.3,1)" },
+              { t: t, x: 0, r: rot, o: 1, ease: E.lin },
+              { t: t + h, x: 3300, r: rot, o: 1 },
+              { t: t + h + 0.01, x: 3300, r: rot, o: 0 }
+            ], { ease: E.out });
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

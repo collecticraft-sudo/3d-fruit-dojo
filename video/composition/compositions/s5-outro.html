@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s5-outro { position: absolute; inset: 0; overflow: hidden; background: #efe3c4; font-family: Montserrat, Inter, sans-serif; color: #1d1a1c; }
+        #s5-outro .abs { position: absolute; left: 0; top: 0; }
+        #s5-outro img { display: block; }
+        #s5-outro .layer { position: absolute; will-change: transform; }
+        #s5-outro #s5-line { position: absolute; left: 0; width: 1920px; top: 590px; text-align: center; font-weight: 900; font-size: 84px; letter-spacing: -0.015em; }
+        #s5-outro #s5-line .hot { color: #d4401c; }
+        #s5-outro .mode { position: absolute; top: 706px; width: 220px; text-align: center; }
+        #s5-outro .mode img { width: 112px; height: 112px; margin: 0 auto 2px; }
+        #s5-outro .mode b { display: inline-block; padding: 3px 14px 2px; background: #f7edd0; border: 3px solid #1d1a1c; border-radius: 10px; font-weight: 800; font-size: 24px; letter-spacing: 0.08em; box-shadow: 4px 4px 0 #1d1a1c; }
+        #s5-outro #s5-credits { position: absolute; left: 60px; right: 60px; bottom: 14px; padding: 8px 20px 8px; background: rgba(24,22,28,0.88); color: #fbf1d6; border-radius: 12px;
+          font-weight: 500; font-size: 22px; line-height: 1.28; text-align: center; }
+        #s5-outro #s5-credits b { font-weight: 800; color: #f1b02f; }
+        #s5-outro #s5-end { position: absolute; inset: 0; background: #1d1a1c; opacity: 0; }
+      </style>
+      <div id="s5-outro" data-composition-id="s5-outro" data-width="1920" data-height="1080">
+        <div class="layer" id="s5-far" style="left:-120px; top:-70px; width:2200px; height:1238px;"><img src="assets/bg/bg_arcade_far.jpg" width="2200" height="1238" /></div>
+        <div class="layer" id="s5-mid" style="left:-90px; top:-52px; width:2130px; height:1198px;"><img src="assets/bg/bg_arcade_mid.png" width="2130" height="1198" /></div>
+        <div class="abs" id="s5-logo-wrap" style="left:430px; top:56px; width:1060px; height:541px;"><div class="abs" id="s5-logo-clip" style="width:1060px;height:541px;"><img id="s5-logo" src="assets/ui/logo_title.png" width="1060" height="541" style="filter: drop-shadow(0 14px 0 rgba(28,24,30,0.22));" /></div></div>
+        <div class="layer" id="s5-near" style="left:-110px; top:-52px; width:2150px; height:1210px;"><img src="assets/bg/bg_arcade_near.png" width="2150" height="1210" /></div>
+        <div id="s5-line">Swing to slice.</div>
+        <div class="mode" id="s5-m1" style="left:520px;"><img src="assets/sprites/fruit_watermelon_whole.png" /><b>CLASSIC</b></div>
+        <div class="mode" id="s5-m2" style="left:850px;"><img src="assets/sprites/fruit_orange_whole.png" /><b>ARCADE</b></div>
+        <div class="mode" id="s5-m3" style="left:1180px;"><img src="assets/sprites/fruit_pear_whole.png" /><b>ZEN</b></div>
+        <div id="s5-credits"><b>Music:</b> &ldquo;Happy Beats / Business Moves&rdquo; by Sascha Ende (ende.app), CC BY 4.0 &nbsp;&middot;&nbsp; <b>SFX:</b> Kenney, CC0 &nbsp;&middot;&nbsp; <b>Voice and art:</b> Higgsfield &nbsp;&middot;&nbsp; <b>Built with</b> Claude</div>
+        <div id="s5-end"></div>
+      </div>
+      <script>
+        (function () {
+          var T = 41.3;
+          var K = KF.scene(T, document.getElementById("s5-outro"));
+          var E = KF.E;
+          K.track("#s5-far", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -20, s: 1.03 }], { ease: E.lin });
+          K.track("#s5-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -56, s: 1.04 }], { ease: E.lin });
+          K.track("#s5-near", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -120, s: 1.06 }], { ease: E.lin });
+          // logo: brush reveal + pop
+          K.track("#s5-logo-clip", [{ t: 0, css: { clipPath: "inset(0 100% 0 0)" } }, { t: 0.25, css: { clipPath: "inset(0 100% 0 0)" }, ease: E.out }, { t: 0.9, css: { clipPath: "inset(0 0% 0 0)" } }]);
+          K.track("#s5-logo-wrap", [{ t: 0, s: 0.88, y: 20 }, { t: 0.25, s: 0.88, y: 20, ease: E.back }, { t: 1.0, s: 1.0, y: 0, ease: E.soft }, { t: 4.75, s: 1.0, y: -12 }]);
+          // tagline words
+          var ws = KF.words(K.$("#s5-line"), false);
+          ws.forEach(function (w, i) {
+            var o = 0.9 + i * 0.14;
+            K.track(w, [{ t: 0, y: 50, o: 0 }, { t: o, y: 50, o: 0, ease: E.out }, { t: o + 0.5, y: 0, o: 1 }]);
+          });
+          ws[2].classList.add("hot");
+          // modes
+          ["#s5-m1", "#s5-m2", "#s5-m3"].forEach(function (id, i) {
+            var s = 1.5 + i * 0.16;
+            K.track(id, [{ t: 0, y: 40, s: 0.6, o: 0 }, { t: s, y: 40, s: 0.6, o: 0, ease: E.back }, { t: s + 0.45, y: 0, s: 1, o: 1 }]);
+          });
+          // credits
+          K.track("#s5-credits", [{ t: 0, y: 30, o: 0 }, { t: 1.1, y: 30, o: 0, ease: E.out }, { t: 1.6, y: 0, o: 1 }]);
+          // fade to ink at the very end
+          K.track("#s5-end", [{ t: 0, o: 0 }, { t: 4.2, o: 0, ease: E.lin }, { t: 4.74, o: 1 }]);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

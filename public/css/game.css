@@ -1,0 +1,38 @@
+/* 3D Fruit Dojo: full-window canvas, letterbox colour = ink (#14141C). OWNER: Presentation engineer.
+   No external fonts, images or URLs (docs/architecture.md 8.9). The canvas cursor style is set from the UI state
+   (UiState.systemCursor): default on the safety and connect screens, none while the game draws its own cursor. */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #14141c;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+canvas#stage {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: #14141c;
+}
+
+noscript {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #f4ebd9;
+  background: #14141c;
+  font: 600 28px ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+}

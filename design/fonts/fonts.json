@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "comment": "Source of truth for the shipped fonts (docs/typography.md). tools/build-assets.mjs copies dist/ into public/assets/fonts/ and records the sizes and hashes in manifest.json and PROVENANCE.csv. design/fonts/build-fonts.py rebuilds dist/ from src/ (a dev-time step: it needs Python fontTools and brotli, nothing runs at game time).",
+  "unicodeRanges": "U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201D,U+2022,U+2026,U+2212",
+  "fonts": [
+    {
+      "id": "display",
+      "family": "DojoDisplay",
+      "role": "Display face: logo text, headlines, buttons, banners, countdown, rank, HUD numerals, popups",
+      "file": "dojo-display.woff2",
+      "weight": "100 900",
+      "style": "normal",
+      "source": {
+        "name": "Lilita One",
+        "version": "1.002",
+        "author": "Juan Montoreano",
+        "file": "src/LilitaOne-Regular.ttf",
+        "upstream": "google/fonts repository, ofl/lilitaone",
+        "upstreamFile": "ofl/lilitaone/LilitaOne-Regular.ttf"
+      },
+      "license": "SIL-OFL-1.1",
+      "licenseFile": "licenses/OFL-lilitaone.txt",
+      "axes": null
+    },
+    {
+      "id": "ui",
+      "family": "DojoUI",
+      "role": "UI face: body text, small text, hints, labels, toasts",
+      "file": "dojo-ui.woff2",
+      "weight": "100 900",
+      "style": "normal",
+      "source": {
+        "name": "Fredoka",
+        "version": "2.001",
+        "author": "Milena B. Brandao, Ben Nathan (Fredoka Project Authors)",
+        "file": "src/Fredoka[wdth,wght].ttf",
+        "upstream": "google/fonts repository, ofl/fredoka",
+        "upstreamFile": "ofl/fredoka/Fredoka[wdth,wght].ttf"
+      },
+      "license": "SIL-OFL-1.1",
+      "licenseFile": "licenses/OFL-fredoka.txt",
+      "axes": {
+        "wdth": 100,
+        "wght": [
+          500,
+          700
+        ]
+      }
+    }
+  ]
+}

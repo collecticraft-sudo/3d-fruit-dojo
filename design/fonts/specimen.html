@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>3D Fruit Dojo: font specimen (design tool, not shipped)</title>
+<!--
+  Specimen sheet for the display and UI font candidates (docs/restyle-direction.md 1.1, docs/typography.md).
+  Draws the real game strings with the game's canvas recipes (stroke then fill, hard shadow, gold banner gradient) at the real sizes
+  (28, 34, 52, 72, 96, 128, 160 px) over paper, the night veil and the vermilion plate.
+  Usage: open design/fonts/specimen.html?d=<display family>&u=<ui family> in Chrome, or run design/fonts/specimen.mjs for a PNG.
+  The families in FILES are the two shipped ones (design/fonts/src/, full TTF files) plus the names of four candidates that were looked at and
+  rejected (Titan One, Bowlby One, Paytone One, Nunito); their files are not kept, see design/fonts/README.md to get them again.
+-->
+<style>
+  html, body { margin: 0; background: #14141C; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1760"></canvas>
+<script>
+const q = new URLSearchParams(location.search);
+const FILES = {
+  'Titan One': ['src/TitanOne-Regular.ttf', '400'], // rejected candidates: download into src/ to compare again
+  'Bowlby One': ['src/BowlbyOne-Regular.ttf', '400'],
+  'Paytone One': ['src/PaytoneOne-Regular.ttf', '400'],
+  'Nunito': ['src/Nunito[wght].ttf', '200 1000'],
+  'Lilita One': ['src/LilitaOne-Regular.ttf', '400'], // shipped as DojoDisplay
+  'Fredoka': ['src/Fredoka[wdth,wght].ttf', '300 700'], // shipped as DojoUI
+};
+const D = q.get('d') || 'Titan One';
+const U = q.get('u') || 'Fredoka';
+const stackFor = (name) => `"${name}", system-ui, sans-serif`;
+const C = { paper: '#EADFC8', paperLight: '#F4EBD9', ink: '#14141C', inkText2: '#4E4740', vermilion: '#D9432B', vermilionDeep: '#A82A18', night: '#24304F', gold: '#F2B134' };
+
+async function load() {
+  const faces = [];
+  for (const name of new Set([D, U])) {
+    const [file, weight] = FILES[name];
+    const f = new FontFace(name, `url("${encodeURI(file)}")`, { weight });
+    faces.push(f.load().then((ff) => document.fonts.add(ff)));
+  }
+  await Promise.all(faces);
+}
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+
+function plain(text, x, y, font, fill, stroke, sw, align = 'left') {
+  ctx.font = font; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.miterLimit = 2;
+  if (stroke) { ctx.lineWidth = sw; ctx.strokeStyle = stroke; ctx.strokeText(text, x, y); }
+  ctx.fillStyle = fill; ctx.fillText(text, x, y);
+}
+function banner(text, x, y, size, tint = 'gold', align = 'center') {
+  const font = `400 ${size}px ${stackFor(D)}`;
+  ctx.font = font; ctx.textAlign = align; ctx.lineJoin = 'round'; ctx.miterLimit = 2;
+  ctx.fillStyle = 'rgba(20,20,28,0.9)'; ctx.fillText(text, x + 0.04 * size, y + 0.07 * size);
+  ctx.lineWidth = 0.15 * size; ctx.strokeStyle = '#14141C'; ctx.strokeText(text, x, y);
+  const stops = { gold: ['#FFE28A', '#F2B134', '#D9892A'], vermilion: ['#FF6A4A', '#D9432B', '#A82A18'], paper: ['#FFFFFF', '#F4EBD9', '#D8CAAE'] }[tint];
+  const g = ctx.createLinearGradient(0, y - size * 0.72, 0, y);
+  g.addColorStop(0, stops[0]); g.addColorStop(0.5, stops[1]); g.addColorStop(1, stops[2]);
+  ctx.fillStyle = g; ctx.fillText(text, x, y);
+}
+function plateLabel(text, cx, cy, w, h, size) {
+  ctx.fillStyle = C.vermilion; ctx.beginPath(); ctx.roundRect(cx - w / 2, cy - h / 2, w, h, 20); ctx.fill();
+  ctx.strokeStyle = C.vermilionDeep; ctx.lineWidth = 6; ctx.stroke();
+  ctx.font = `400 ${size}px ${stackFor(D)}`;
+  let s = size; let tw = ctx.measureText(text).width;
+  while (tw > w - 60 && s > 28) { s -= 2; ctx.font = `400 ${s}px ${stackFor(D)}`; tw = ctx.measureText(text).width; }
+  const y = cy + s * 0.35 + 2;
+  ctx.textAlign = 'center'; ctx.lineJoin = 'round'; ctx.miterLimit = 2;
+  ctx.fillStyle = '#5A1409'; ctx.fillText(text, cx + 2, y + 3);
+  ctx.lineWidth = Math.max(4, s * 0.1); ctx.strokeStyle = C.ink; ctx.strokeText(text, cx, y);
+  ctx.fillStyle = C.paperLight; ctx.fillText(text, cx, y);
+  ctx.font = `600 22px ${stackFor(U)}`; ctx.fillStyle = C.ink; ctx.textAlign = 'center';
+  ctx.fillText(`${s}px  ${Math.round(tw)}px wide`, cx, cy + h / 2 + 24);
+}
+function popup(text, x, y, size, fill) {
+  const font = `400 ${size}px ${stackFor(D)}`;
+  ctx.font = font; ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+  ctx.fillStyle = 'rgba(20,20,28,0.9)'; ctx.fillText(text, x + 0.04 * size, y + 0.07 * size);
+  ctx.lineWidth = 0.16 * size; ctx.strokeStyle = C.ink; ctx.strokeText(text, x, y);
+  ctx.fillStyle = fill; ctx.fillText(text, x, y);
+}
+function digits(str, x, y, size, fill, stroke) {
+  // tabular cells: the widest digit advance
+  ctx.font = `400 ${size}px ${stackFor(D)}`;
+  let cell = 0; for (const d of '0123456789') cell = Math.max(cell, ctx.measureText(d).width);
+  let cx = x;
+  for (const ch of str) {
+    const w = (ch === ',' || ch === ':' || ch === '.') ? cell * 0.45 : cell;
+    ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+    ctx.lineWidth = size * 0.1; ctx.strokeStyle = stroke; ctx.strokeText(ch, cx + w / 2, y);
+    ctx.fillStyle = fill; ctx.fillText(ch, cx + w / 2, y);
+    cx += w;
+  }
+  return cx - x;
+}
+
+function panel(x0, y0, w, h, bg, kind) {
+  ctx.fillStyle = bg; ctx.fillRect(x0, y0, w, h);
+  const ink = kind === 'night' ? C.paperLight : C.ink;
+  const stroke = kind === 'night' ? C.ink : C.paperLight;
+  const d = (size) => `400 ${size}px ${stackFor(D)}`;
+  const u = (wt, size) => `${wt} ${size}px ${stackFor(U)}`;
+  let y = y0 + 20;
+  // title (display 150, shrinks to fit the panel as the game's fitText does)
+  let ts = 150; ctx.font = d(ts); while (ctx.measureText('3D FRUIT DOJO').width > w - 60 && ts > 110) { ts -= 2; ctx.font = d(ts); }
+  const tw = ctx.measureText('3D FRUIT DOJO').width;
+  plain('3D FRUIT DOJO', x0 + w / 2, y + 150, d(ts), ink, stroke, ts * 0.1, 'center');
+  ctx.font = u(600, 22); ctx.fillStyle = ink; ctx.textAlign = 'center'; ctx.fillText(`title ${ts}px, ${Math.round(tw)} px wide (150 px would be ${Math.round(tw * 150 / ts)})`, x0 + w / 2, y + 185);
+  y += 215;
+  for (const [i, t] of ['Classic', 'Arcade', 'Zen'].entries()) {
+    ctx.font = d(76); plain(t, x0 + 160 + i * 320, y + 76, d(76), ink, stroke, 6, 'center');
+  }
+  ctx.font = d(76); const gw = ctx.measureText('Game over').width;
+  plain('Game over', x0 + 40, y + 170, d(76), ink, stroke, 6, 'left');
+  ctx.font = u(600, 22); ctx.fillStyle = ink; ctx.textAlign = 'left'; ctx.fillText(`"Game over" at 76 px: ${Math.round(gw)} px wide`, x0 + 40 + gw + 20, y + 168);
+  y += 215;
+  // buttons
+  plateLabel('Classic', x0 + 210, y + 50, 380, 100, 52);
+  plateLabel('Play again', x0 + 640, y + 50, 380, 100, 52);
+  y += 160;
+  plateLabel('Reset high scores', x0 + 210, y + 40, 380, 84, 42);
+  plateLabel('No, keep playing', x0 + 640, y + 40, 380, 84, 42);
+  y += 130;
+  // banners
+  banner('COMBO ×7!', x0 + w / 2, y + 150, 160, 'gold'); y += 175;
+  banner('BOMB!', x0 + 250, y + 120, 128, 'vermilion');
+  banner('GO!', x0 + 700, y + 120, 128, 'gold'); y += 140;
+  banner('TIME’S UP!', x0 + w / 2, y + 96, 96, 'paper'); y += 120;
+  banner('NEW RECORD!', x0 + w / 2, y + 96, 96, 'gold', 'center'); y += 125;
+  // numerals
+  let nx = x0 + 30;
+  nx += digits('0123456789', nx, y + 96, 96, ink, stroke) + 40;
+  y += 120;
+  nx = x0 + 30;
+  nx += digits('+1250', nx, y + 60, 60, ink, stroke) + 40;
+  nx += digits('12,450', nx, y + 60, 96, ink, stroke) + 30;
+  nx += digits('1:07', nx, y + 60, 60, '#D9432B', stroke);
+  y += 90;
+  popup('+15', x0 + 100, y + 48, 48, '#F5A56A'); popup('+60', x0 + 250, y + 72, 72, '#F2B134'); popup('−50', x0 + 420, y + 48, 48, '#FF6A4A'); popup('Missed!', x0 + 640, y + 48, 48, '#FF6A4A');
+  y += 90;
+  // UI text
+  plain('Slice the fruit. Avoid the bombs.', x0 + 20, y + 34, u(600, 34), ink, null, 0);
+  y += 48;
+  plain('Blade speed: 842 °/s · Best: 12,450 · −5 s · ×2', x0 + 20, y + 28, u(600, 28), ink, null, 0);
+  y += 40;
+  plain('3 lives. Don’t let the fruit get away!', x0 + 20, y + 28, u(500, 28), kind === 'night' ? C.paperLight : C.inkText2, null, 0);
+  y += 40;
+  plain('Sensitivity  Reduce flashes  Sword tuning', x0 + 20, y + 34, u(700, 34), ink, null, 0);
+  return y;
+}
+
+async function main() {
+  await load();
+  ctx.fillStyle = '#14141C'; ctx.fillRect(0, 0, 1920, 1760);
+  const W = 960;
+  panel(0, 0, W, 1760, C.paper, 'paper');
+  panel(W, 0, W, 1760, C.night, 'night');
+  ctx.font = `700 26px ${stackFor(U)}`; ctx.fillStyle = '#888'; ctx.textAlign = 'left';
+  ctx.fillText(`display: ${D}   ui: ${U}`, 12, 1748);
+  document.title = 'ready';
+}
+
+async function mainUi() {
+  const names = (q.get('ui') || 'Fredoka,Nunito').split(',');
+  for (const name of names) {
+    const [file, weight] = FILES[name];
+    const f = new FontFace(name, `url("${encodeURI(file)}")`, { weight });
+    document.fonts.add(await f.load());
+  }
+  ctx.fillStyle = '#14141C'; ctx.fillRect(0, 0, 1920, 1760);
+  const lines = [
+    ['Slice the fruit. Avoid the bombs.', 34],
+    ['Make room: keep at least 2 meters (6 ft) clear around you in every direction.', 34],
+    ['Blade speed: 842 °/s   Best: 12,450   −5 s   Points ×2   “Reduce flashes”', 28],
+    ['3 lives. Don’t let the fruit get away!  90 seconds. No bombs, no stress.', 28],
+    ['0123456789  1 7 4 9  0:00  10:59  +4 s  −50', 34],
+    ['Sensitivity   Slice threshold   Hold to select   Sword tuning   Auto-recenter', 34],
+  ];
+  const W = 960;
+  names.forEach((name, col) => {
+    const x0 = col * W;
+    for (const [bgi, bg] of [[0, '#EADFC8'], [1, '#24304F']]) {
+      const y0 = bgi * 880;
+      ctx.fillStyle = bg; ctx.fillRect(x0, y0, W, 880);
+      const fg = bgi ? '#F4EBD9' : '#14141C';
+      ctx.fillStyle = fg; ctx.font = '700 26px system-ui'; ctx.textAlign = 'left';
+      ctx.fillText(name + (bgi ? ' on night' : ' on paper'), x0 + 20, y0 + 40);
+      let y = y0 + 90;
+      for (const wt of [500, 600, 700]) {
+        ctx.font = '600 20px system-ui'; ctx.fillStyle = bgi ? '#9AA6C0' : '#7A6F60'; ctx.fillText('weight ' + wt, x0 + 20, y - 8);
+        for (const [text, size] of lines) {
+          ctx.font = `${wt} ${size}px "${name}", system-ui`; ctx.fillStyle = fg; ctx.textAlign = 'left';
+          let t = text; let w = ctx.measureText(t).width;
+          ctx.fillText(t, x0 + 20, y + size, W - 40);
+          y += size + 14;
+        }
+        y += 16;
+      }
+    }
+  });
+  document.title = 'ready';
+}
+if (q.get('mode') === 'ui') mainUi(); else main();
+</script>
+</body>
+</html>

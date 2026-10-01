@@ -1,0 +1,26 @@
+{
+  "classic": {
+    "mediaStart": 0.3,
+    "why": "most action: score 27"
+  },
+  "arcade": {
+    "mediaStart": 0,
+    "why": "most action: score 53"
+  },
+  "zen": {
+    "mediaStart": 0,
+    "why": "most action: score 32"
+  },
+  "combo": {
+    "mediaStart": 0.9,
+    "why": "combo x4 at 1.35s"
+  },
+  "bomb": {
+    "mediaStart": 0.9,
+    "why": "bomb at 1.5s"
+  },
+  "freeze": {
+    "mediaStart": 0.5,
+    "why": "freeze at 0.9s"
+  }
+}

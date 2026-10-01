@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14141C">
+<title>3D Fruit Dojo</title>
+<!--
+  3D Fruit Dojo entry page (docs/architecture.md 9.2). OWNER: integrator.
+  One canvas, one stylesheet, one module script. No inline script, no external URL: the game runs fully offline.
+  In-game text is English (js/ui/strings.en.js); the <noscript> line below is the only player-visible text outside the string table.
+-->
+<link rel="stylesheet" href="css/game.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<canvas id="stage" tabindex="0" aria-label="3D Fruit Dojo"></canvas>
+<noscript>3D Fruit Dojo needs JavaScript. Turn it on in Chrome's settings and reload the page.</noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

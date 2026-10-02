@@ -101,7 +101,6 @@ All the flags, the `window.__ninja` automation API, performance numbers, the art
 ## Credits and licences
 
 - Game design, direction, hardware testing and the 3D-printed katana: collecticraft-sudo.
-- Made with AI tools: the art was generated with Higgsfield GPT Image 2.5, and the code, tests and documents were written and reviewed by AI agents (Claude, from Anthropic) under the owner's direction.
 - Fonts: Lilita One and Fredoka (SIL OFL 1.1). Video music: "Happy Beats / Business Moves" by Sascha Ende (ende.app), CC BY 4.0. Video sound effects: Kenney (kenney.nl), CC0. The Joy-Con 2 protocol comes from public community research (ndeadly, Peterksharma, JoeGeC, TheFrano, seitanmen, mascii and others). The full list is in [`CREDITS.md`](CREDITS.md).
 - **Code: MIT** ([`LICENSE`](LICENSE)). **Art, logo, name and video: all rights reserved** ([`LICENSE-ASSETS.md`](LICENSE-ASSETS.md)): you may run the game and look at the art, but not reuse it elsewhere without permission.
 - **Nintendo, Nintendo Switch 2 and Joy-Con are trademarks of Nintendo. This project is not affiliated with, endorsed by or sponsored by Nintendo.** It talks to the controller over standard Bluetooth Low Energy, using public community research.

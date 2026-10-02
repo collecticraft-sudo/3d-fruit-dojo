@@ -39,16 +39,16 @@
         <div class="layer" id="s1-near" style="left:-130px; top:-62px; width:2200px; height:1238px;"><img src="assets/bg/bg_classic_near.png" width="2200" height="1238" /></div>
 
         <!-- tagline -->
-        <div id="s1-line"><span id="s1-plate">What if your sword was the controller?</span></div>
+        <div id="s1-line"><span id="s1-plate">What if your katana was the controller?</span></div>
       </div>
       <script>
         (function () {
           var K = KF.scene(0, document.getElementById("s1-hook"));
           var E = KF.E;
           // parallax: slow drift of the three layers (far moves least, near most)
-          K.track("#s1-far", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -22, s: 1.035 }], { ease: E.lin });
-          K.track("#s1-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -62, s: 1.04 }], { ease: E.lin });
-          K.track("#s1-near", [{ t: 0, x: 0, s: 1.0 }, { t: 5.0, x: -130, s: 1.06 }], { ease: E.lin });
+          K.track("#s1-far", [{ t: 0, x: 0, s: 1.0 }, { t: 4.4, x: -22, s: 1.035 }], { ease: E.lin });
+          K.track("#s1-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 4.4, x: -62, s: 1.04 }], { ease: E.lin });
+          K.track("#s1-near", [{ t: 0, x: 0, s: 1.0 }, { t: 4.4, x: -130, s: 1.06 }], { ease: E.lin });
 
           // orange flight (x linear, y with gravity-like ease, spin)
           K.track("#s1-ox", [{ t: 0, x: 210, ease: E.lin }, { t: 1.05, x: 795 }], { ease: E.lin });
@@ -71,24 +71,24 @@
 
           // logo reveal: brush wipe from the left + pop
           K.track("#s1-logo-clip", [{ t: 0, o: 1, css: { clipPath: "inset(0 100% 0 0)" } }, { t: 1.1, css: { clipPath: "inset(0 100% 0 0)" }, ease: E.out }, { t: 1.75, css: { clipPath: "inset(0 0% 0 0)" } }]);
-          K.track("#s1-logo-wrap", [{ t: 0, s: 0.9, y: 18 }, { t: 1.1, s: 0.9, y: 18, ease: E.back }, { t: 1.8, s: 1.0, y: 0, ease: E.soft }, { t: 5.0, s: 1.0, y: -10 }]);
+          K.track("#s1-logo-wrap", [{ t: 0, s: 0.9, y: 18 }, { t: 1.1, s: 0.9, y: 18, ease: E.back }, { t: 1.8, s: 1.0, y: 0, ease: E.soft }, { t: 4.4, s: 1.0, y: -10 }]);
 
           // tagline words
           var line = K.$("#s1-plate");
-          K.track(line, [{ t: 0, y: 40, o: 0, r: -2 }, { t: 2.05, y: 40, o: 0, r: -2, ease: E.back }, { t: 2.5, y: 0, o: 1, r: -0.6 }]);
+          K.track(line, [{ t: 0, y: 40, o: 0, r: -2 }, { t: 1.8, y: 40, o: 0, r: -2, ease: E.back }, { t: 2.2, y: 0, o: 1, r: -0.6 }]);
           var ws = KF.words(line, false);
           ws.forEach(function (w, i) {
-            var o = 2.2 + i * 0.1;
+            var o = 1.95 + i * 0.1;
             K.track(w, [{ t: 0, y: 60, o: 0 }, { t: o, y: 60, o: 0, ease: E.out }, { t: o + 0.55, y: 0, o: 1 }]);
           });
-          // "sword" gets the vermilion accent + a brush underline that grows after the words are in
+          // "katana" gets the vermilion accent + a brush underline that grows after the words are in
           ws[3].classList.add("hot");
           var holder = ws[3].parentNode;
           holder.style.position = "relative";
           var ul = document.createElement("i");
           ul.className = "ulb";
           holder.appendChild(ul);
-          K.track(ul, [{ t: 0, sx: 0, o: 1 }, { t: 3.0, sx: 0, o: 1, ease: E.out }, { t: 3.5, sx: 1 }]);
+          K.track(ul, [{ t: 0, sx: 0, o: 1 }, { t: 2.7, sx: 0, o: 1, ease: E.out }, { t: 3.2, sx: 1 }]);
         })();
       </script>
     </template>

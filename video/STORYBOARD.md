@@ -1,4 +1,4 @@
-# 3D Fruit Dojo: presentation video, storyboard (46 s, 1920x1080, 16:9, 30 fps)
+# [FIRST CUT, 46 s; the current cut is 28.3 s, see composition/index.html] 3D Fruit Dojo: presentation video, storyboard (46 s, 1920x1080, 16:9, 30 fps)
 
 Message: "What if your sword was the controller?" A fruit-slicing game (flat woodblock "Ink and Paper Dojo" look, art by Higgsfield GPT Image 2.5)
 played with a Joy-Con 2 on a 3D-printed sword, built, tested and reviewed by a team of AI agents.

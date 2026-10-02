@@ -1,15 +1,15 @@
 {
   "classic": {
     "mediaStart": 0.3,
-    "why": "most action: score 27"
+    "why": "most action: score 20"
   },
   "arcade": {
-    "mediaStart": 0,
-    "why": "most action: score 53"
+    "mediaStart": 0.1,
+    "why": "most action: score 45"
   },
   "zen": {
-    "mediaStart": 0,
-    "why": "most action: score 32"
+    "mediaStart": 1.8,
+    "why": "most action: score 23"
   },
   "combo": {
     "mediaStart": 0.9,

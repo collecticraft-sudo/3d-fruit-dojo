@@ -18,7 +18,7 @@ const footage = arg('--footage', path.join(video, 'footage'));
 const indexFile = arg('--index', path.join(video, 'composition/index.html'));
 const outJson = path.join(path.dirname(indexFile), 'footage-fit.json');
 // slot = [name, slot start on the composition clock, slot length] (the same numbers as in index.html and build-audio.mjs)
-const slots = [['classic', 14.6, 4.4], ['arcade', 19.0, 4.4], ['zen', 23.4, 4.2], ['combo', 27.6, 1.7], ['bomb', 29.3, 1.7], ['freeze', 31.0, 1.8]];
+const slots = [['classic', 11.1, 2.6], ['arcade', 13.7, 2.4], ['zen', 16.1, 2.2], ['combo', 18.3, 1.8], ['bomb', 20.1, 1.8], ['freeze', 21.9, 1.8]];
 const dur = (f) => parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' }));
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const round = (v) => Math.round(v * 1000) / 1000;

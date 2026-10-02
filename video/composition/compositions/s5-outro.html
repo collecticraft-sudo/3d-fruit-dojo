@@ -27,20 +27,20 @@
         <div class="mode" id="s5-m1" style="left:520px;"><img src="assets/sprites/fruit_watermelon_whole.png" /><b>CLASSIC</b></div>
         <div class="mode" id="s5-m2" style="left:850px;"><img src="assets/sprites/fruit_orange_whole.png" /><b>ARCADE</b></div>
         <div class="mode" id="s5-m3" style="left:1180px;"><img src="assets/sprites/fruit_pear_whole.png" /><b>ZEN</b></div>
-        <div id="s5-credits"><b>Music:</b> &ldquo;Happy Beats / Business Moves&rdquo; by Sascha Ende (ende.app), CC BY 4.0 &nbsp;&middot;&nbsp; <b>SFX:</b> Kenney, CC0 &nbsp;&middot;&nbsp; <b>Voice and art:</b> Higgsfield &nbsp;&middot;&nbsp; <b>Built with</b> Claude</div>
+        <div id="s5-credits"><b>Music:</b> &ldquo;Happy Beats / Business Moves&rdquo; by Sascha Ende (ende.app), CC BY 4.0 &nbsp;&middot;&nbsp; <b>SFX:</b> Kenney, CC0 </div>
         <div id="s5-end"></div>
       </div>
       <script>
         (function () {
-          var T = 41.3;
+          var T = 23.7;
           var K = KF.scene(T, document.getElementById("s5-outro"));
           var E = KF.E;
-          K.track("#s5-far", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -20, s: 1.03 }], { ease: E.lin });
-          K.track("#s5-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -56, s: 1.04 }], { ease: E.lin });
-          K.track("#s5-near", [{ t: 0, x: 0, s: 1.0 }, { t: 4.75, x: -120, s: 1.06 }], { ease: E.lin });
+          K.track("#s5-far", [{ t: 0, x: 0, s: 1.0 }, { t: 4.6, x: -20, s: 1.03 }], { ease: E.lin });
+          K.track("#s5-mid", [{ t: 0, x: 0, s: 1.0 }, { t: 4.6, x: -56, s: 1.04 }], { ease: E.lin });
+          K.track("#s5-near", [{ t: 0, x: 0, s: 1.0 }, { t: 4.6, x: -120, s: 1.06 }], { ease: E.lin });
           // logo: brush reveal + pop
           K.track("#s5-logo-clip", [{ t: 0, css: { clipPath: "inset(0 100% 0 0)" } }, { t: 0.25, css: { clipPath: "inset(0 100% 0 0)" }, ease: E.out }, { t: 0.9, css: { clipPath: "inset(0 0% 0 0)" } }]);
-          K.track("#s5-logo-wrap", [{ t: 0, s: 0.88, y: 20 }, { t: 0.25, s: 0.88, y: 20, ease: E.back }, { t: 1.0, s: 1.0, y: 0, ease: E.soft }, { t: 4.75, s: 1.0, y: -12 }]);
+          K.track("#s5-logo-wrap", [{ t: 0, s: 0.88, y: 20 }, { t: 0.25, s: 0.88, y: 20, ease: E.back }, { t: 1.0, s: 1.0, y: 0, ease: E.soft }, { t: 4.6, s: 1.0, y: -12 }]);
           // tagline words
           var ws = KF.words(K.$("#s5-line"), false);
           ws.forEach(function (w, i) {
@@ -56,7 +56,7 @@
           // credits
           K.track("#s5-credits", [{ t: 0, y: 30, o: 0 }, { t: 1.1, y: 30, o: 0, ease: E.out }, { t: 1.6, y: 0, o: 1 }]);
           // fade to ink at the very end
-          K.track("#s5-end", [{ t: 0, o: 0 }, { t: 4.2, o: 0, ease: E.lin }, { t: 4.74, o: 1 }]);
+          K.track("#s5-end", [{ t: 0, o: 0 }, { t: 3.95, o: 0, ease: E.lin }, { t: 4.5, o: 1 }]);
         })();
       </script>
     </template>

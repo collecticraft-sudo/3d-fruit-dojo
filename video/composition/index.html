@@ -13,47 +13,42 @@
   </head>
   <body>
     <!--
-      3D Fruit Dojo presentation video, 46 s, 1920x1080, 30 fps.  Animation runtime: Web Animations API through kf.js (no GSAP, nothing fetched at render time).
-      Scenes: s1-hook 0-5 | s2-idea 5-14.6 (illustration) | gameplay 14.6-32.8 (6 footage slots + overlay s3-gameplay) | s4-made 32.8-41.3 | s5-outro 41.3-46.
-      The footage slots use the final file names (footage/classic.mp4 ...); until stage 2 they are placeholder slates.
+      3D Fruit Dojo presentation video, 28.3 s (under the 30 s limit), 1920x1080, 30 fps. No voice-over: on-screen text, music and sound effects.
+      Animation runtime: Web Animations API through kf.js (no GSAP, nothing fetched at render time).
+      Scenes: s1-hook 0-4.3 | s2-idea 4.3-11.1 (illustration: katana + magnetic Joy-Con) | gameplay 11.1-23.7 (6 footage slots + overlay s3-gameplay) | s5-outro 23.7-28.3.
     -->
-    <div id="root" data-no-timeline data-composition-id="main" data-start="0" data-duration="46" data-width="1920" data-height="1080">
+    <div id="root" data-no-timeline data-composition-id="main" data-start="0" data-duration="28.3" data-width="1920" data-height="1080">
 
       <div id="h-s1" class="clip" data-no-timeline data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html"
-           data-start="0" data-duration="5.05" data-track-index="1" data-width="1920" data-height="1080"></div>
+           data-start="0" data-duration="4.35" data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="h-s2" class="clip" data-no-timeline data-composition-id="s2-idea" data-composition-src="compositions/s2-idea.html"
-           data-start="5.0" data-duration="9.65" data-track-index="1" data-width="1920" data-height="1080"></div>
+           data-start="4.3" data-duration="6.85" data-track-index="1" data-width="1920" data-height="1080"></div>
 
-      <!-- gameplay montage: real footage slots (placeholders until stage 2). data-media-start picks where in the clip to start. -->
-      <video id="v-classic" class="vid" src="footage/classic.mp4" data-start="14.6" data-duration="4.4" data-media-start="0.3" data-track-index="2" muted playsinline></video>
-      <video id="v-arcade" class="vid" src="footage/arcade.mp4" data-start="19.0" data-duration="4.4" data-media-start="0" data-track-index="2" muted playsinline></video>
-      <video id="v-zen" class="vid" src="footage/zen.mp4" data-start="23.4" data-duration="4.2" data-media-start="0" data-track-index="2" muted playsinline></video>
-      <video id="v-combo" class="vid" src="footage/combo.mp4" data-start="27.6" data-duration="1.7" data-media-start="0.9" data-track-index="2" muted playsinline></video>
-      <video id="v-bomb" class="vid" src="footage/bomb.mp4" data-start="29.3" data-duration="1.7" data-media-start="0.9" data-track-index="2" muted playsinline></video>
-      <video id="v-freeze" class="vid" src="footage/freeze.mp4" data-start="31.0" data-duration="1.8" data-media-start="0.5" data-track-index="2" muted playsinline></video>
+      <!-- gameplay montage: real footage slots. data-media-start picks where in the clip to start (set by tools/fit-footage.mjs). -->
+      <video id="v-classic" class="vid" src="footage/classic.mp4" data-start="11.1" data-duration="2.6" data-media-start="0.3" data-track-index="2" muted playsinline></video>
+      <video id="v-arcade" class="vid" src="footage/arcade.mp4" data-start="13.7" data-duration="2.4" data-media-start="0.1" data-track-index="2" muted playsinline></video>
+      <video id="v-zen" class="vid" src="footage/zen.mp4" data-start="16.1" data-duration="2.2" data-media-start="1.8" data-track-index="2" muted playsinline></video>
+      <video id="v-combo" class="vid" src="footage/combo.mp4" data-start="18.3" data-duration="1.8" data-media-start="0.9" data-track-index="2" muted playsinline></video>
+      <video id="v-bomb" class="vid" src="footage/bomb.mp4" data-start="20.1" data-duration="1.8" data-media-start="0.9" data-track-index="2" muted playsinline></video>
+      <video id="v-freeze" class="vid" src="footage/freeze.mp4" data-start="21.9" data-duration="1.8" data-media-start="0.5" data-track-index="2" muted playsinline></video>
       <div id="h-s3" class="clip" data-no-timeline data-composition-id="s3-play" data-composition-src="compositions/s3-gameplay.html"
-           data-start="14.6" data-duration="18.2" data-track-index="3" data-width="1920" data-height="1080"></div>
+           data-start="11.1" data-duration="12.6" data-track-index="3" data-width="1920" data-height="1080"></div>
 
-      <div id="h-s4" class="clip" data-no-timeline data-composition-id="s4-made" data-composition-src="compositions/s4-made.html"
-           data-start="32.8" data-duration="8.55" data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="h-s5" class="clip" data-no-timeline data-composition-id="s5-outro" data-composition-src="compositions/s5-outro.html"
-           data-start="41.3" data-duration="4.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+           data-start="23.7" data-duration="4.6" data-track-index="1" data-width="1920" data-height="1080"></div>
 
-      <div id="h-caps" class="clip" data-no-timeline data-track-kind="captions" data-composition-id="captions" data-composition-src="compositions/captions.html"
-           data-start="0" data-duration="46" data-track-index="8" data-width="1920" data-height="1080"></div>
       <div id="h-wipes" class="clip" data-no-timeline data-composition-id="wipes" data-composition-src="compositions/wipes.html"
-           data-start="0" data-duration="46" data-track-index="9" data-width="1920" data-height="1080"></div>
+           data-start="0" data-duration="28.3" data-track-index="9" data-width="1920" data-height="1080"></div>
 
       <!-- AUDIO:BEGIN (generated by video/tools/build-audio.mjs) -->
-      <audio id="narration" data-audio-group="voiceover" src="audio/narration.wav" data-start="0" data-duration="46" data-track-index="10" data-volume="1"></audio>
-      <audio id="music" data-audio-group="music" src="audio/music.mp3" data-start="0" data-duration="46" data-track-index="11" data-volume="1" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.9,"v":0.5},{"t":0.55,"v":0.22},{"t":4.35,"v":0.22},{"t":4.75,"v":0.5},{"t":5.05,"v":0.5},{"t":5.25,"v":0.22},{"t":18.15,"v":0.22},{"t":18.55,"v":0.5},{"t":18.95,"v":0.5},{"t":19.15,"v":0.22},{"t":21.67,"v":0.22},{"t":22.07,"v":0.5},{"t":23.35,"v":0.5},{"t":23.55,"v":0.22},{"t":26.63,"v":0.22},{"t":27.03,"v":0.5},{"t":27.45,"v":0.5},{"t":27.65,"v":0.22},{"t":45.45,"v":0.22},{"t":45.85,"v":0.5},{"t":46,"v":0}]}]}'></audio>
-      <audio id="sfx" data-audio-group="sfx" src="audio/sfx.wav" data-start="0" data-duration="46" data-track-index="12" data-volume="1"></audio>
+      <audio id="music" data-audio-group="music" src="audio/music.mp3" data-start="0" data-duration="28.3" data-track-index="11" data-volume="1" data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0},{"t":0.4,"v":0.4},{"t":27.400000000000002,"v":0.4},{"t":28.3,"v":0}]}]}'></audio>
+      <audio id="sfx" data-audio-group="sfx" src="audio/sfx.wav" data-start="0" data-duration="28.3" data-track-index="12" data-volume="1"></audio>
       <!-- AUDIO:END -->
     </div>
     <script>
       // slow push-in on every gameplay clip (the footage itself is not retimed or altered)
       (function () {
-        var clips = [["#v-classic", 14.6, 4.4], ["#v-arcade", 19.0, 4.4], ["#v-zen", 23.4, 4.2], ["#v-combo", 27.6, 1.7], ["#v-bomb", 29.3, 1.7], ["#v-freeze", 31.0, 1.8]];
+        var clips = [["#v-classic", 11.1, 2.6], ["#v-arcade", 13.7, 2.4], ["#v-zen", 16.1, 2.2], ["#v-combo", 18.3, 1.8], ["#v-bomb", 20.1, 1.8], ["#v-freeze", 21.9, 1.8]];
         clips.forEach(function (c) {
           KF.track(0, c[0], [{ t: c[1], s: 1.0 }, { t: c[1] + c[2], s: 1.03 }], { ease: KF.E.lin });
         });

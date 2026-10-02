@@ -1,5 +1,14 @@
 # Credits and licences of the presentation video
 
+**Current cut (28.3 s, no voice-over).** The credit line burned into the last scene is now:
+
+> Music: "Happy Beats / Business Moves" by Sascha Ende (ende.app), CC BY 4.0 · SFX: Kenney, CC0
+
+The narration and the "how it was made" scene of the first 46 s cut were removed. The music is cut to the first 28.6 s of the track with a 0.3 s fade-in and a 1 s fade-out. Everything else in this file about music, sound effects, art and footage still applies; read "Narration" below as describing the first (46 s) cut only.
+
+---
+(Text of the first cut follows.)
+
 The credit line burned into the last scene (and to be pasted into the video description):
 
 > Music: "Happy Beats / Business Moves" by Sascha Ende (ende.app), licensed under CC BY 4.0. Sound effects: Kenney (kenney.nl), CC0. Voice and art: Higgsfield (GPT Image 2.5). Built with Claude.

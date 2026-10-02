@@ -11,7 +11,7 @@
 
 **Slice fruit by swinging a real sword.** 3D Fruit Dojo is a fruit-slicing game where **your 3D-printed sword is the controller**: strap a Nintendo Switch 2 **Joy-Con 2** (left or right) to the sword, swing it, and the fruit on your Mac's screen gets cut. It is a dependency-free web game (HTML5 Canvas 2D, ES modules, a small Node server and a native Bluetooth helper for macOS) with a mouse and a simulator mode, so you can play it without any controller.
 
-**Watch the presentation video (46 s, 1080p MP4):** download `3d-fruit-dojo-presentation.mp4` from the [v1.0.0 release](https://github.com/collecticraft-sudo/3d-fruit-dojo/releases/tag/v1.0.0) (the video is not stored in git, see `video/` for its sources and plan). The gameplay in it is the real game played by the simulator bot; it makes no claim about how the real sword feels.
+**Watch the presentation video (28 s, 1080p MP4):** download `3d-fruit-dojo-presentation.mp4` from the [v1.0.0 release](https://github.com/collecticraft-sudo/3d-fruit-dojo/releases/tag/v1.0.0) (the video is not stored in git, see `video/` for its sources and plan). The gameplay in it is the real game played by the simulator bot; it makes no claim about how the real sword feels.
 
 *The game was renamed from "Joy-Con Ninja" on 2026-09-30. The code name `joycon-ninja` stays in the folder, in the package name, in `window.__ninja`, in the URL flags and in the browser's `joyconNinja.*` storage keys, so that your saved scores and settings survive.*
 

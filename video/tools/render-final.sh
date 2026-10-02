@@ -8,7 +8,6 @@ HERE="$(cd "$(dirname "$0")/.." && pwd)"
 HF="npx --yes hyperframes@0.8.104"
 MODE="${1:-final}"
 cd "$HERE"
-node tools/build-captions.mjs
 node tools/fit-footage.mjs          # sets data-media-start of the footage slots from footage/*.events.json
 node tools/build-audio.mjs          # places the slice sounds from footage/*.events.json when they exist
 SYNC="$(./tools/sync-assets.sh)"; echo "$SYNC"

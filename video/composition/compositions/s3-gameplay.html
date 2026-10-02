@@ -21,20 +21,20 @@
         <div class="chip" id="s3-c4">COMBO<small>several fruit, one swing</small></div>
         <div class="chip red" id="s3-c5">BOMB<small>cut one and you lose a life</small></div>
         <div class="chip" id="s3-c6">FREEZE<small>power-up: time slows down</small></div>
-        <div id="s3-real"><b>Real gameplay</b>, played by the built-in simulator bot</div>
+        <div id="s3-real"><b>Real gameplay</b>, played by a bot</div>
       </div>
       <script>
         (function () {
-          var T = 14.6;
+          var T = 11.1;
           var K = KF.scene(T, document.getElementById("s3-play"));
           var E = KF.E;
-          // clip windows (composition time, same numbers as index.html): classic 14.6, arcade 19.0, zen 23.4, combo 27.6, bomb 29.3, freeze 31.0, end 32.8
-          var st = [14.6, 19.0, 23.4, 27.6, 29.3, 31.0], en = [19.0, 23.4, 27.6, 29.3, 31.0, 32.8];
+          // clip windows (composition time, same numbers as index.html): classic 11.1, arcade 13.7, zen 16.1, combo 18.3, bomb 20.1, freeze 21.9, end 23.7
+          var st = [11.1, 13.7, 16.1, 18.3, 20.1, 21.9], en = [13.7, 16.1, 18.3, 20.1, 21.9, 23.7];
           st.forEach(function (s, i) {
             var a = s - T + 0.25, b = en[i] - T - 0.12;
             K.track("#s3-c" + (i + 1), [{ t: 0, x: -60, o: 0 }, { t: a, x: -60, o: 0, ease: E.out }, { t: a + 0.35, x: 0, o: 1 }, { t: b, x: 0, o: 1, ease: E.in }, { t: b + 0.12, x: 0, o: 0 }]);
           });
-          K.track("#s3-real", [{ t: 0, o: 0 }, { t: 0.5, o: 0, ease: E.out }, { t: 0.9, o: 1 }, { t: 17.9, o: 1, ease: E.lin }, { t: 18.1, o: 0 }]);
+          K.track("#s3-real", [{ t: 0, o: 0 }, { t: 0.5, o: 0, ease: E.out }, { t: 0.9, o: 1 }, { t: 12.4, o: 1, ease: E.lin }, { t: 12.6, o: 0 }]);
         })();
       </script>
     </template>

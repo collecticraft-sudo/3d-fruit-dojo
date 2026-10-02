@@ -36,5 +36,5 @@ for n in classic arcade zen combo bomb freeze; do
     if [ -f "$HERE/footage/$n.placeholder" ] && [ ! "$HERE/footage/$n.mp4" -nt "$HERE/footage/$n.placeholder" ]; then echo "  footage/$n.mp4: PLACEHOLDER slate"; else echo "  footage/$n.mp4: real footage"; fi
   else echo "  footage/$n.mp4: MISSING"; fi
 done
-if [ -d "$HERE/audio/final" ]; then cp -f "$HERE"/audio/final/narration.wav "$HERE"/audio/final/music.mp3 "$HERE"/audio/final/sfx.wav "$C/audio/"; fi
+if [ -d "$HERE/audio/final" ]; then cp -f "$HERE"/audio/final/music.mp3 "$HERE"/audio/final/sfx.wav "$C/audio/"; fi
 echo "synced into $C"
